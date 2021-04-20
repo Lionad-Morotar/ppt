@@ -1,0 +1,1570 @@
+<style>
+  body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+  --color1: #0104FD;
+  --color2: #FF98FF;
+  --color3: #FF6827;
+  --color4: #00004E;
+  --color5: #FFFFFF;
+  --color: var(--color2);
+}
+body:before {
+  content: 'click to regenerate';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #ccc;
+}
+body #wrap {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  background: #fff;
+}
+body .cellwrap {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background: #fff;
+  overflow: hidden;
+  mix-blend-mode: hard-light;
+  box-shadow: 0 20px 20px -10px rgba(0, 0, 0, 0.25);
+}
+body .cell {
+  position: relative;
+  -webkit-filter: url(#squiggle);
+          filter: url(#squiggle);
+  z-index: 0;
+  mix-blend-mode: difference;
+}
+body .cell .inner {
+  content: '';
+  position: absolute;
+  width: calc(var(--size) * 5%);
+  height: calc(var(--size) * 5%);
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--angle)), color-stop(var(--color)), to(var(--color6)));
+  background: linear-gradient(var(--angle), var(--color), var(--color6));
+  border-radius: 100%;
+  z-index: -1;
+  top: calc(var(--size) * 5% / -2);
+  left: calc(var(--size) * 5% / -2);
+  opacity: var(--opacity);
+  -webkit-filter: brightness(calc(var(--opacity) + 1));
+          filter: brightness(calc(var(--opacity) + 1));
+  -webkit-transform: skewX(var(--skewX)) skewY(var(--skewY));
+          transform: skewX(var(--skewX)) skewY(var(--skewY));
+}
+body svg {
+  position: absolute;
+  z-index: 10;
+  width: calc(var(--size) * 1%);
+  height: calc(var(--size) * 1%);
+  -webkit-transform: translate(-50%, -50%) rotate(var(--rotate));
+          transform: translate(-50%, -50%) rotate(var(--rotate));
+  left: 50%;
+  top: 50%;
+  mix-blend-mode: exclusion;
+}
+body svg path {
+  fill: transparent;
+  stroke: var(--color);
+  stroke-width: calc(4px - (var(--size) * 0.0025px));
+  stroke-linecap: round;
+}
+
+</style>
+
+<div id='wrap'>
+  <div class='cellwrap'>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+  </div>
+  <div class='cellwrap'>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+  </div>
+  <div class='cellwrap'>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+  </div>
+  <div class='cellwrap'>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+  </div>
+  <div class='cellwrap'>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+  </div>
+  <div class='cellwrap'>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+  </div>
+  <div class='cellwrap'>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+  </div>
+  <div class='cellwrap'>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+  </div>
+  <div class='cellwrap'>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+    <div class='cell'>
+      <svg data-name='Layer 1' id='Layer_1' viewbox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+        <path class='squig' d='M 200 400 Q 5 325 85 310 Q 235 290 120 205 Q 20 140 195 95 Q 320 60 30 20 '></path>
+      </svg>
+      <div class='inner'></div>
+    </div>
+  </div>
+</div>
+<svg style='display:none' version='1.1' xmlns='http://www.w3.org/2000/svg'>
+  <defs>
+    <filter id='squiggle'>
+      <feturbulence basefrequency='0.02 0.04' id='turbulence' numoctaves='3' result='noise' seed='0'></feturbulence>
+      <fedisplacementmap id='displacement' in2='fractalNoise' in='SourceGraphic' scale='37'></fedisplacementmap>
+    </filter>
+  </defs>
+</svg>
+
+<script>
+  function draw(){
+  document.querySelectorAll(".cell").forEach(cell => { 
+    cell.style.setProperty("--size",((Math.floor(Math.random() * 150) + 150)));
+    cell.style.setProperty("--skewX",((Math.floor(Math.random() * 45) - 45))+ "deg");
+    cell.style.setProperty("--skewY",((Math.floor(Math.random() * 45) - 45))+ "deg");
+    cell.style.setProperty("--angle",((Math.floor(Math.random() * 360) + 1))+ "deg");
+    cell.style.setProperty("--color","var(--color"+((Math.floor(Math.random() * 4) + 1))+")");
+    cell.style.setProperty("--color6","var(--color"+((Math.floor(Math.random() * 4) + 1))+")");
+    cell.style.setProperty("--rotate",((Math.floor(Math.random() * 360) - 180)) + 'deg');
+    cell.style.setProperty("--opacity",(10/(Math.floor(Math.random() * 20) + 1)) + 0.25);
+  });
+  document.querySelectorAll(".squig").forEach(squig => { 
+    var start = (Math.floor(Math.random() * 15) + 25);
+    var total = (Math.floor(Math.random() * 6) + 1);
+    if (total > 3){
+      var points = [
+        [start, 5],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 100) + 50)],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 125) + 50)],
+        [(Math.floor(Math.random() * 100) + 50), (Math.floor(Math.random() * 150) + 50)],
+        [(Math.floor(Math.random() * 100) + 25), (Math.floor(Math.random() * 125) + 50)],
+        [(Math.floor(Math.random() * 100) + 0), (Math.floor(Math.random() * 50) + 5)],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 100) + 50)],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 100) + 100)],
+        [start,5]
+    ];
+    }
+   if (total > 5){
+      var points = [
+        [start, 5],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 100) + 50)],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 125) + 50)],
+        [(Math.floor(Math.random() * 100) + 50), (Math.floor(Math.random() * 150) + 50)],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 100) + 50)],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 100) + 100)],
+        [start,5]
+    ];
+    }
+    else{
+      var points = [
+        [start, 5],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 100) + 50)],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 100) + 50)],
+        [(Math.floor(Math.random() * 100) + 100), (Math.floor(Math.random() * 100) + 100)],
+        [start,5]
+    ];
+    }
+
+    render(toSVGPath(points));
+    squig.setAttribute("d", toRoundedSVGPath(points));
+
+    function render(path){};
+
+    function toSVGPath(points) {
+        var SVGPath = '';
+        for (var i = 0; i < points.length; i++) {
+            var prefix = (i == 0) ? 'M' : 'L';
+            SVGPath += prefix + points[i][0] + ' ' + points[i][1] + ' ';
+        }
+        return SVGPath;
+    }
+
+    function toRoundedSVGPath(points) {
+        var SVGPath = '';
+        for (var i = 0; i < points.length; i++) {
+            if (i == 0) {
+              SVGPath += 'M' + points[i][0] + ' ' + points[i][1];
+            } else {
+                var current, previous, next;
+                current = points[i];
+                previous = points[i-1];
+                if (i < points.length -1) {
+                  next = points[i+1];
+                } else {
+                    next = points[0];
+                }
+                var quota = 0.15;
+                var median = [
+                    (current[0] - previous[0] * quota) / (1 + quota),
+                    (current[1] - previous[1] * quota) / (1 + quota),
+                ];
+              SVGPath += 'C' + previous[0] + ' ' + previous[1];
+              SVGPath += ' ' + median[0]   + ' ' + median[1];
+              SVGPath += ' ' + current[0]  + ' ' + current[1];
+            }
+            SVGPath += ' ';
+        }
+        return SVGPath;
+    }
+    
+    });
+    
+};
+
+draw();
+
+
+document.addEventListener('click', function (event) {
+draw();
+}, false);
+
+</script>

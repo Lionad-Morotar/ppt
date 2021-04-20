@@ -1,0 +1,738 @@
+<style>
+  div, div::before, div::after {
+  position: relative;
+  box-sizing: border-box;
+}
+
+div {
+  --color1: hsl(196, 50%, 50%);
+  --color1alt: hsl(196, 50%, 33%);
+  --color1alta: hsl(196, 50%, 73%);
+  --color2: hsl(356, 70%, 50%);
+  --color2alt: hsl(356, 70%, 40%);
+  --color2alta: hsl(356, 70%, 80%);
+  --color3: hsl(33, 80%, 60%);
+  --color3alt: hsl(43, 80%, 50%);
+  --white: #eaeaef;
+  --white-between: hsla(0,0%,0%,.2);
+  --black: var(--color1alt);
+  
+  --height: 40vmin;
+  --bellow-y: 1vmin;
+  --bellow-y-less: 39vmin;
+  --bellow-width: 50vmin;
+  
+  --button-dim: 1.4vmin;
+  --button: radial-gradient(circle, var(--color1) var(--button-dim), transparent var(--button-dim));
+  --button1: radial-gradient(circle, var(--button1-color, var(--color1)) var(--button1-dim, var(--button-dim)), transparent var(--button1-dim, var(--button-dim)));
+  --button4: radial-gradient(circle, var(--button4-color, var(--color1)) var(--button4-dim, var(--button-dim)), transparent var(--button4-dim, var(--button-dim)));
+  --button7: radial-gradient(circle, var(--button7-color, var(--color1)) var(--button7-dim, var(--button-dim)), transparent var(--button7-dim, var(--button-dim)));
+  --button8: radial-gradient(circle, var(--button8-color, var(--color1)) var(--button8-dim, var(--button-dim)), transparent var(--button8-dim, var(--button-dim)));
+  --button-x: -3vmin;
+  --button-y: -16vmin;
+  --button2-x: 2vmin; --button2-y: -12vmin;
+  --button3-y: -8vmin;
+  --button4-x: 2vmin; --button4-y: -4vmin;
+  --button5-y: 0vmin;
+  --button6-x: 2vmin; --button6-y: 4vmin;
+  --button7-y: 8vmin;
+  --button8-x: 2vmin; --button8-y: 12vmin;
+  --button9-y: 16vmin;
+  
+  --button-key-x: 5.5vmin;
+  --button-key1-y: -6vmin;
+  --button-key2-y: 0vmin;
+  --button-key3-y: 6vmin;
+   
+  --shine: linear-gradient(to bottom, transparent 11.5%, var(--color2) 11.5%, var(--color2) 29.5%, transparent 29.5%, transparent 70.5%, var(--color2) 70.5%, var(--color2) 88.5%, transparent 88.5%);
+  --shine-horizontal: linear-gradient(to right, transparent 9.5%, var(--color2) 41.5%, var(--color2) 58.5%, transparent 86.5%);
+  
+  --the-black-keys: 
+    linear-gradient(
+      to bottom,
+      transparent 3.5%,
+      var(--black1, var(--black)) 3.5%,
+      var(--black1, var(--black)) 6.5%,
+      transparent 6.5%,
+      transparent 8.5%,
+      var(--black2, var(--black)) 8.5%,
+      var(--black2, var(--black)) 11.5%,
+      transparent 11.5%,
+      transparent 13.5%,
+      var(--black3, var(--black)) 13.5%,
+      var(--black3, var(--black)) 16.5%,
+      transparent 16.5%,
+      
+      transparent 23.5%,
+      var(--black4, var(--black)) 23.5%,
+      var(--black4, var(--black)) 26.5%,
+      transparent 26.5%,
+      transparent 28.5%,
+      var(--black5, var(--black)) 28.5%,
+      var(--black5, var(--black)) 31.5%,
+      transparent 31.5%,
+      
+      transparent 38.5%,
+      var(--black6, var(--black)) 38.5%,
+      var(--black6, var(--black)) 41.5%,
+      transparent 41.5%,
+      transparent 43.5%,
+      var(--black7, var(--black)) 43.5%,
+      var(--black7, var(--black)) 46.5%,
+      transparent 46.5%,
+      transparent 48.5%,
+      var(--black8, var(--black)) 48.5%,
+      var(--black8, var(--black)) 51.5%,
+      transparent 51.5%,
+      
+      transparent 58.5%,
+      var(--black9, var(--black)) 58.5%,
+      var(--black9, var(--black)) 61.5%,
+      transparent 61.5%,
+      transparent 63.5%,
+      var(--black10, var(--black)) 63.5%,
+      var(--black10, var(--black)) 66.5%,
+      transparent 66.5%,
+      
+      
+      transparent 73.5%,
+      var(--black11, var(--black)) 73.5%,
+      var(--black11, var(--black)) 76.5%,
+      transparent 76.5%,
+      transparent 78.5%,
+      var(--black12, var(--black)) 78.5%,
+      var(--black12, var(--black)) 81.5%,
+      transparent 81.5%,
+      transparent 83.5%,
+      var(--black13, var(--black)) 83.5%,
+      var(--black13, var(--black)) 86.5%,
+      transparent 86.5%,
+      
+      transparent 93.5%,
+      var(--black14, var(--black)) 93.5%,
+      var(--black14, var(--black)) 96.5%,
+      transparent 96.5%
+    );
+  
+  /* If not animating, the keys can be done with a repeating linear gradient, breaking it out explicity (a few lines down) allows us more animation options 
+  --keyboard: repeating-linear-gradient(to bottom, 
+      var(--white-between) 0%,
+      var(--white-between) 0.4%,
+      var(--white) 0.4%,
+      var(--white) 5%);
+  */
+  
+  --keyboard: linear-gradient(to bottom, 
+      var(--white-between) 0%,
+      var(--white-between) 0.4%,
+      var(--white1, var(--white)) 0.4%,
+      var(--white1, var(--white)) 5%, 
+      var(--white-between) 5%,
+      var(--white-between) 5.4%,
+      var(--white2, var(--white)) 5.4%,
+      var(--white2, var(--white)) 10%, 
+      var(--white-between) 10%,
+      var(--white-between) 10.4%,
+      var(--white3, var(--white)) 10.4%,
+      var(--white3, var(--white)) 15%, 
+      var(--white-between) 15%,
+      var(--white-between) 15.4%,
+      var(--white4, var(--white)) 15.4%,
+      var(--white4, var(--white)) 20%, 
+      var(--white-between) 20%,
+      var(--white-between) 20.4%,
+      var(--white5, var(--white)) 20.4%,
+      var(--white5, var(--white)) 25%, 
+      var(--white-between) 25%,
+      var(--white-between) 25.4%,
+      var(--white6, var(--white)) 25.4%,
+      var(--white6, var(--white)) 30%, 
+      var(--white-between) 30%,
+      var(--white-between) 30.4%,
+      var(--white7, var(--white)) 30.4%,
+      var(--white7, var(--white)) 35%, 
+      var(--white-between) 35%,
+      var(--white-between) 35.4%,
+      var(--white8, var(--white)) 35.4%,
+      var(--white8, var(--white)) 40%, 
+      var(--white-between) 40%,
+      var(--white-between) 40.4%,
+      var(--white9, var(--white)) 40.4%,
+      var(--white9, var(--white)) 45%, 
+      var(--white-between) 45%,
+      var(--white-between) 45.4%,
+      var(--white10, var(--white)) 45.4%,
+      var(--white10, var(--white)) 50%, 
+      var(--white-between) 50%,
+      var(--white-between) 50.4%,
+      var(--white11, var(--white)) 50.4%,
+      var(--white11, var(--white)) 55%, 
+      var(--white-between) 55%,
+      var(--white-between) 55.4%,
+      var(--white12, var(--white)) 55.4%,
+      var(--white12, var(--white)) 60%, 
+      var(--white-between) 60%,
+      var(--white-between) 60.4%,
+      var(--white13, var(--white)) 60.4%,
+      var(--white13, var(--white)) 65%, 
+      var(--white-between) 65%,
+      var(--white-between) 65.4%,
+      var(--white14, var(--white)) 65.4%,
+      var(--white14, var(--white)) 70%, 
+      var(--white-between) 70%,
+      var(--white-between) 70.4%,
+      var(--white15, var(--white)) 70.4%,
+      var(--white15, var(--white)) 75%, 
+      var(--white-between) 75%,
+      var(--white-between) 75.4%,
+      var(--white16, var(--white)) 75.4%,
+      var(--white16, var(--white)) 80%, 
+      var(--white-between) 80%,
+      var(--white-between) 80.4%,
+      var(--white17, var(--white)) 80.4%,
+      var(--white17, var(--white)) 85%, 
+      var(--white-between) 85%,
+      var(--white-between) 85.4%,
+      var(--white18, var(--white)) 85.4%,
+      var(--white18, var(--white)) 90%, 
+      var(--white-between) 90%,
+      var(--white-between) 90.4%,
+      var(--white19, var(--white)) 90.4%,
+      var(--white19, var(--white)) 95%, 
+      var(--white-between) 95%,
+      var(--white-between) 95.4%,
+      var(--white20, var(--white)) 95.4%,
+      var(--white20, var(--white)) 100%);
+  
+  --keyboard-base: linear-gradient(to right, var(--color3alt), var(--color3alt));
+  
+  --black-keys-position: 45% center;
+  --black-keys-size: 36% 84%;
+  --keyboard-position: left center;
+  --keyboard-size: 66% 84%;
+  
+  --squeeze-duration: 13000ms;
+  --button-duration: 2300ms;
+  --squeeze-state: running;
+  
+  --note-color1: rgba(255, 255, 255, .1);
+  --note-color2: rgba(255, 255, 255, .2);
+  --note-color3: rgba(255, 255, 255, .05);
+  --note-x1: -10vmin;
+  --note-x2: -16vmin;
+  --note-x3: -8vmin;
+  
+  --notes-full-1: var(--note-x1) 5vmin 0vmin var(--note-color1),
+    var(--note-x2) 25vmin 0vmin var(--note-color2),
+    var(--note-x3) 37.5vmin 0vmin var(--note-color3);
+  --notes-full-2: -8vmin 5vmin 0vmin rgba(255, 255, 255, .4),
+      -10vmin 25vmin 0vmin rgba(255, 255, 255, .02),
+      -14vmin 37.5vmin 0vmin rgba(255, 255, 255, .24);
+  --notes-full-3: -12vmin 5vmin 0vmin rgba(255, 255, 255, .1),
+      -8vmin 25vmin 0vmin rgba(255, 255, 255, .2),
+      -16vmin 37.5vmin 0vmin rgba(255, 255, 255, .4);
+  --notes-full-4: -16vmin 5vmin 0vmin rgba(255, 255, 255, .2),
+      -13vmin 25vmin 0vmin rgba(255, 255, 255, .3),
+      -9vmin 37.5vmin 0vmin rgba(255, 255, 255, .1);
+}
+
+/*keyboard side*/
+div {
+  width: calc(var(--bellow-width) * .36);
+  height: calc(var(--height) + 5vmin);
+  border-radius: 4vmin 1vmin 1vmin 4vmin;
+  border: 0vmin solid var(--color2);
+ 
+  background:
+    var(--shine),
+    var(--shine),
+    var(--button-key1, var(--button)),
+    var(--button-key2, var(--button)),
+    var(--button-key3, var(--button)),
+    var(--the-black-keys),
+    var(--keyboard),
+    var(--keyboard-base);
+  background-repeat: no-repeat;
+  
+  background-position:
+    80% 0,
+    85% 0,
+    var(--button-key-x) var(--button-key1-y),
+    var(--button-key-x) var(--button-key2-y),
+    var(--button-key-x) var(--button-key3-y),
+    var(--black-keys-position),
+    var(--keyboard-position),
+    0 0;
+  
+  background-size:
+    1px 100%,
+    2px 100%,
+    100%,
+    100%,
+    100%,
+    var(--black-keys-size),
+    var(--keyboard-size),
+    100%;
+  
+  box-shadow: inset 1vmin 0px 0 1vmin rgba(235,235,239,.2);
+  
+  transform: translateX(calc(var(--bellow-width) * -.66));
+  
+  text-shadow: var(--notes-full-1);
+  
+  color: rgba(0,0,0,0);
+  font-size: 4vmin;
+}
+
+/* bellows */
+div::before{
+  width: var(--bellow-width);
+  height: var(--height);
+  background:
+    linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .02)),
+    repeating-linear-gradient(to right, var(--color1) 0vmin, var(--color1) 2.5vmin, var(--color1alt) 2.5vmin, var(--color1alt) 5vmin);
+  top: 2.5vmin;
+  left: 100%;
+  bottom: 0;
+}
+
+@supports(clip-path: polygon(0% 0%, 0% 10%, 10% 0%)) {
+  div::before {  
+    clip-path: polygon(
+      0% 0%, 
+      2.5vmin var(--bellow-y), 
+      5vmin 0, 
+      7.5vmin var(--bellow-y), 
+      10vmin 0, 
+      12.5vmin var(--bellow-y), 
+      15vmin 0, 
+      17.5vmin var(--bellow-y), 
+      20vmin 0, 
+      22.5vmin var(--bellow-y), 
+      25vmin 0, 
+      27.5vmin var(--bellow-y), 
+      30vmin 0, 
+      32.5vmin var(--bellow-y), 
+      35vmin 0, 
+      37.5vmin var(--bellow-y), 
+      40vmin 0, 
+      42.5vmin var(--bellow-y), 
+      45vmin 0, 
+      47.5vmin var(--bellow-y), 
+      50vmin 0,
+      50vmin var(--height),
+      47.5vmin var(--bellow-y-less),
+      45vmin var(--height),
+      42.5vmin var(--bellow-y-less),
+      40vmin var(--height),
+      37.5vmin var(--bellow-y-less),
+      35vmin var(--height),
+      32.5vmin var(--bellow-y-less),
+      30vmin var(--height),
+      27.5vmin var(--bellow-y-less),
+      25vmin var(--height),
+      22.5vmin var(--bellow-y-less),
+      20vmin var(--height),
+      17.5vmin var(--bellow-y-less),
+      15vmin var(--height),
+      12.5vmin var(--bellow-y-less),
+      10vmin var(--height),
+      7.5vmin var(--bellow-y-less),
+      5vmin var(--height),
+      2.5vmin var(--bellow-y-less),
+      0vmin var(--height)
+    );
+  }
+}
+
+/* button side */
+div::after {
+  left: calc(100% + var(--bellow-width));
+  top: 0;
+  bottom: 0;
+  width: calc(var(--bellow-width) * .30);
+  border-radius: 1vmin 4vmin 4vmin 1vmin; 
+  
+  background:
+    var(--shine-horizontal),
+    var(--shine-horizontal),
+    var(--button1, var(--button)),
+    var(--button2, var(--button)),
+    var(--button3, var(--button)),
+    var(--button4, var(--button)),
+    var(--button5, var(--button)),
+    var(--button6, var(--button)),
+    var(--button7, var(--button)),
+    var(--button8, var(--button)),
+    var(--button9, var(--button)),
+    linear-gradient(var(--color3alt), var(--color3alt));
+  background-repeat: no-repeat;
+  
+  background-position: 
+    1.5vmin 8%,
+    1.5vmin 92%,
+    var(--button1-x, var(--button-x)) var(--button1-y, var(--button-y)),
+    var(--button2-x, var(--button-x)) var(--button2-y, var(--button-y)),
+    var(--button3-x, var(--button-x)) var(--button3-y, var(--button-y)),
+    var(--button4-x, var(--button-x)) var(--button4-y, var(--button-y)),
+    var(--button5-x, var(--button-x)) var(--button5-y, var(--button-y)),
+    var(--button6-x, var(--button-x)) var(--button6-y, var(--button-y)),
+    var(--button7-x, var(--button-x)) var(--button7-y, var(--button-y)),
+    var(--button8-x, var(--button-x)) var(--button8-y, var(--button-y)),
+    var(--button9-x, var(--button-x)) var(--button9-y, var(--button-y)),
+    center center;
+  
+  --default-size: 100%;
+  
+  background-size:
+    80% 2px,
+    80% 2px,
+    var(--default-size),
+    var(--default-size),
+    var(--default-size),
+    var(--default-size),
+    var(--default-size),
+    var(--default-size),
+    var(--default-size),
+    var(--default-size),
+    var(--default-size),
+    var(--default-size);
+    
+  box-shadow: inset -1vmin 0px 0px 1vmin rgba(235,235,239,.2);
+  
+}
+
+div::before, div::after {
+  content: '';
+  position: absolute;
+}
+
+
+
+/* CSS Transform Animations */
+div::before {
+  animation: squeeze var(--squeeze-duration) 0ms infinite alternate ease-in-out;
+  animation-play-state: var(--squeeze-state, paused);
+  transform-origin: left center;
+}
+div::after {
+  animation: go-with-squeeze var(--squeeze-duration) 0ms infinite alternate ease-in-out;
+  animation-play-state: var(--squeeze-state, paused);
+  will-change: transform;
+}
+div {
+  --extra-animations: note-float 3200ms infinite alternate ease-in-out;
+  animation: go-against-squeeze var(--squeeze-duration) 0ms infinite alternate ease-in-out,
+    var(--extra-animations);
+  animation-play-state: var(--squeeze-state, paused);
+  will-change: transform, text-shadow;
+  transition: text-shadow 2000ms ease-in-out;
+}
+
+.supports-variables-in-keyframes div {
+  --extra-animations: 
+    press-button1 var(--button-duration, 1000ms) 200ms infinite alternate,
+    press-button4 var(--button-duration, 1000ms) 2000ms infinite alternate,
+    press-button7 var(--button-duration, 1000ms) -1200ms infinite alternate,
+    press-button8 var(--button-duration, 1000ms) 3400ms infinite alternate,
+    press-keys var(--keys-duration, 8000ms) 0ms infinite both,
+    note-float 3200ms infinite alternate ease-in-out;
+}
+
+@keyframes squeeze {
+  80%, 0% {
+    transform: scaleX(1) translate3d(0,0,0);
+  }
+  40% {
+    transform: scaleX(.8) translate3d(0,0,0);
+  }
+  100%, 60%, 13% {
+    transform: scaleX(.3) translate3d(0,0,0);
+  }
+}
+@keyframes go-with-squeeze {
+  80%, 0% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(calc(var(--bellow-width) * -.2));
+  }
+  100%, 60%, 13% {
+    transform: translateX(calc(var(--bellow-width) * -.7));
+  }
+}
+@keyframes go-against-squeeze {
+  80%, 0% {
+    transform: translateX(calc(var(--bellow-width) * -.66));
+  }
+  40% {
+    transform: translateX(calc(var(--bellow-width) * -.56));
+  }
+  100%, 60%, 13% {
+    transform: translateX(calc(var(--bellow-width) * -.31));
+  }
+}
+@keyframes note-float {
+  30% {
+    text-shadow: var(--notes-full-2);
+  }
+  60% {
+    text-shadow: var(--notes-full-3);
+  }
+  100% {
+    text-shadow: var(--notes-full-4);
+  }
+}
+
+
+@keyframes press-button1 {
+  50% {
+    --button1-dim: 1.2vmin;
+    --button1-color: var(--color1alt);
+  }
+}
+@keyframes press-button4 {
+  50% {
+    --button4-dim: 1.2vmin;
+    --button4-color: var(--color1alt);
+  }
+}
+@keyframes press-button7 {
+  50% {
+    --button7-dim: 1.2vmin;
+    --button7-color: var(--color1alt);
+  }
+}
+@keyframes press-button8 {
+  50% {
+    --button8-dim: 1.2vmin;
+    --button8-color: var(--color1alt);
+  }
+}
+@keyframes press-keys {
+  0% {
+    --white1: var(--color2alta);
+  }
+  3% {
+    --white1: var(--white);
+    --white2: var(--white);
+    --black1: var(--color2alt);
+  }
+  6% {
+    --black1: var(--black);
+    --black2: var(--black);
+    --white2: var(--color2alta);
+  }
+  9% {
+    --white2: var(--white);
+    --white3: var(--white);
+    --black2: var(--color2alt);
+  }
+  12% {
+    --black2: var(--black);
+    --black3: var(--black);
+    --white3: var(--color2alta);
+  }
+  15% {
+    --white3: var(--white);
+    --white4: var(--white);
+    --black3: var(--color2alt);
+  }
+  18% {
+    --black3: var(--black);
+    --white5: var(--white);
+    --white4: var(--color2alta);
+  }
+  21% {
+    --white4: var(--white);
+    --black4: var(--black);
+    --white5: var(--color2alta);
+  }
+  24% {
+    --white5: var(--white);
+    --white6: var(--white);
+    --black4: var(--color2alt);
+  }
+  27% {
+    --black4: var(--black);
+    --black5: var(--black);
+    --white6: var(--color2alta);
+  }
+  30% {
+    --white6: var(--white);
+    --white7: var(--white);
+    --black5: var(--color2alt);
+  }
+  33% {
+    --black5: var(--black);
+    --white8: var(--white);
+    --white7: var(--color2alta);
+  }
+  36% {
+    --black6: var(--black);
+    --white7: var(--white);
+    --white8: var(--color2alta);
+  }
+  
+  
+  39% {
+    --white8: var(--white);
+    --white9: var(--white);
+    --black6: var(--color2alt);
+  }
+  42% {
+    --black6: var(--black);
+    --black7: var(--black);
+    --white9: var(--color2alta);
+  }
+  45% {
+    --white9: var(--white);
+    --white10: var(--white);
+    --black7: var(--color2alt);
+  }
+  48% {
+    --black7: var(--black);
+    --black8: var(--black);
+    --white10: var(--color2alta);
+  }
+  51% {
+    --white10: var(--white);
+    --white11: var(--white);
+    --black8: var(--color2alt);
+  }
+  54% {
+    --black8: var(--black);
+    --white12: var(--white);
+    --white11: var(--color2alta);
+  }
+  57% {
+    --white11: var(--white);
+    --black9: var(--black);
+    --white12: var(--color2alta);
+  }
+  60% {
+    --white12: var(--white);
+    --white13: var(--white);
+    --black9: var(--color2alt);
+  }
+  63% {
+    --black9: var(--black);
+    --black10: var(--black);
+    --white13: var(--color2alta);
+  }
+  66% {
+    --white13: var(--white);
+    --white14: var(--white);
+    --black10: var(--color2alt);
+  }
+  69% {
+    --black10: var(--black);
+    --white15: var(--white);
+    --white14: var(--color2alta);
+  }
+  72% {
+    --black11: var(--black);
+    --white14: var(--white);
+    --white15: var(--color2alta);
+  }
+  
+  
+  75% {
+    --white15: var(--white);
+    --white16: var(--white);
+    --black11: var(--color2alt);
+  }
+  78% {
+    --black11: var(--black);
+    --black12: var(--black);
+    --white16: var(--color2alta);
+  }
+  81% {
+    --white16: var(--white);
+    --white17: var(--white);
+    --black12: var(--color2alt);
+  }
+  84% {
+    --black12: var(--black);
+    --black13: var(--black);
+    --white17: var(--color2alta);
+  }
+  87% {
+    --white17: var(--white);
+    --white18: var(--white);
+    --black13: var(--color2alt);
+  }
+  90% {
+    --black13: var(--black);
+    --white19: var(--white);
+    --white18: var(--color2alta);
+  }
+  93% {
+    --white18: var(--white);
+    --black14: var(--black);
+    --white19: var(--color2alta);
+  }
+  96% {
+    --white19: var(--white);
+    --white20: var(--white);
+    --black14: var(--color2alt);
+  }
+  99% {
+    --black14: var(--black);
+    --white20: var(--color2alta);
+  }
+  100% {
+    --white20: var(--white);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: hsl(33, 80%, 49%);
+}
+form {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1vmin;
+  background: hsla(43, 0%, 0%, .4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, --apple-system, 'Segoe UI', sans-serif;
+  color: #fafaff;
+}
+
+
+
+
+
+:root {
+  --test-value: 0;
+}
+@keyframes supportTest {
+  100% {
+    --test-value: 1;
+  }
+}
+body {
+  animation: supportTest 1ms 0ms 1 linear forwards;
+}
+</style>
+
+<div>♬</div>
