@@ -1,0 +1,51 @@
+body::-webkit-scrollbar {
+  width: 0;
+}
+.pad-block {
+  position: absolute;
+  right: 0;
+  width: 40%;
+  box-shadow:
+    0 1px 4px rgba(0,0,0,0.3),
+    0 5px 25px rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.71);
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  text-align: left;
+}
+
+:root {
+  --c-theme: #F5D5A0;
+}
+.reveal section img,
+.reveal section video,
+.reveal section iframe {
+  max-width: 100%;
+  border: none;
+}
+.reveal .slides h3 + p {
+  margin-top: 1.1em;
+}
+.reveal .label-idx {
+  display: inline-block;
+  margin-right: .35em;
+  min-width: 1.35em;
+  border-radius: 0px;
+  background-color: #383d3d;
+  color: #f0f1eb;
+  font-weight: bold;
+}
+.reveal .label-idx + .label-idx {
+  margin-left: -.35em;
+}
+.reveal del {
+  opacity: .31;
+}
+.reveal emoji {
+  font-size: 1.8em;
+}
+.reveal .description {
+  margin: .8em 0;
+  font-size: 16px;
+}

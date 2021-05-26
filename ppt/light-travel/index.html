@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>CSS POAA</title>
+    <link rel="stylesheet" href="/dist/reset.css">
+    <link rel="stylesheet" href="/plugin/styles/ppt.css">
+    <link rel="stylesheet" href="/dist/reveal.css">
+    <link rel="stylesheet" href="/dist/theme/serif.css" id="theme">
+    <link rel="stylesheet" href="/plugin/highlight/monokai.css" id="highlight-theme">
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- 引言 -->
+        <section>
+          <h1 style="font-size: 3em;">CSS Light Magic</h1>
+          <h4>CSS 光影魔术</h4>
+          <p>
+            <small><a href="https://github.com/Lionad-Morotar">Lionad-Guirotar</a> @Baixing</small>
+          </p>
+        </section>
+
+        <!-- 常见阴影效果 -->
+        <section data-preload data-background-iframe="./iframes/shadow-normal" data-background-interactive></section>
+
+        <!-- 长阴影 -->
+        <section data-preload data-background-iframe="./iframes/long-shadow" data-background-interactive></section>
+
+        <!-- 彩色阴影 -->
+        <section data-preload data-background-iframe="./iframes/color-shadow" data-background-interactive></section>
+
+        <!-- 倒影 -->
+        <section data-preload data-background-iframe="./iframes/reflect" data-background-interactive></section>
+
+        <!-- 高光 -->
+        <section data-preload data-background-iframe="./iframes/flash" data-background-interactive></section>
+
+        <!-- 高级光影效果 -->
+        <section>
+          <section>
+            <h2>Advanced Shaodw</h2>
+            <h4>Without <del>JS</del> !</h4>
+          </section>
+        </section>
+
+        <!-- 两种高级光影效果 -->
+        <section>
+          <h4>1. 材质贴图</h4>
+          <h4>2. 光学效应</h4>
+        </section>
+
+        <!-- 材质贴图 -->
+        <section data-background-iframe="https://image.baidu.com/search/index?tn=baiduimage&fm=result&ie=utf-8&word=%E6%9D%90%E8%B4%A8%E8%B4%B4%E5%9B%BE">
+        </section>
+
+        <!-- 微观物体表面 -->
+        <section data-preload>
+          <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523011634.png" />
+        </section>
+
+        <!-- 材质贴图示例 -->
+        <section data-preload>
+          <h4>制作一张贴图</h4>
+          <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523020054.png" />
+        </section>
+
+        <section>
+          <section>
+            <h4>SVG 材质标准模板</h4>
+            <pre><code class="hlshtml" data-trim>
+              <svg>
+                <filter>
+                  <feTurbulence type="fractalNoise" />
+                  <feDiffuseLighting>
+                    <feDistantLight elevation='10' />
+                  </feDiffuseLighting>
+                </filter>
+              </svg>
+            </code></pre>
+            <div class="fragment">
+              <pre><code class="hlshtml" data-trim>
+                <feTurbulence type="fractalNoise" />
+              </code></pre>
+            </div>
+          </section>
+      </section>
+
+      </div>
+    </div>
+
+    <script src="/dist/reveal.js"></script>
+    <script src="/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [RevealHighlight]
+      }).then(() => {
+        Reveal.on('slidechanged', event => {
+          const id = event.currentSlide.getAttribute('id')
+          switch (id) {
+            case 'section-baidu':
+              console.group('Help Info: ')
+              console.log('1. change iframe')
+              console.log("2. $$('*').map(x => (x.style.border = '1px solid'))")
+              console.groupEnd()
+          }
+        })
+      })
+    </script>
+  </body>
+
+</html>

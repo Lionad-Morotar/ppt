@@ -4,7 +4,8 @@
   "description": "<details>\r   <summary>如何运行？</summary>\r   <ul>\r     <li>1. 首先确保你的电脑装了 NodeJS\r     <li>2. npm install -g http-server\r     <li>3. http-server ./ -p8080\r     <li>4. 访问 http://localhost:8080/index.html 就能看到结果了\r   </ul>\r </details>",
   "main": "index.js",
   "scripts": {
-    "start": "http-server ./ -p9999"
+    "start": "http-server ./ -p9999",
+    "dev": "http-server ./ -p9999 -c0"
   },
   "repository": {
     "type": "git",
