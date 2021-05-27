@@ -66,30 +66,42 @@
 
         <!-- 材质贴图示例 -->
         <section data-preload>
-          <h4>制作一张贴图</h4>
-          <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523020054.png" />
+          <section>
+            <h4>制作一张贴图</h4>
+            <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523020054.png" />
+          </section>
+          <section data-preload data-background-iframe="./iframes/material-picture" data-background-interactive></section>
+          <section data-preload data-background-iframe="./iframes/material-picture/small" data-background-interactive></section>
         </section>
 
+        <!-- SVG 材质标准模板 -->
         <section>
-          <section>
-            <h4>SVG 材质标准模板</h4>
-            <pre><code class="hlshtml" data-trim>
-              <svg>
-                <filter>
-                  <feTurbulence type="fractalNoise" />
-                  <feDiffuseLighting>
-                    <feDistantLight elevation='10' />
-                  </feDiffuseLighting>
-                </filter>
-              </svg>
-            </code></pre>
-            <div class="fragment">
-              <pre><code class="hlshtml" data-trim>
+          <h4>SVG 材质标准模板</h4>
+          <pre><code class="hlshtml" data-trim data-line-numbers="|3|4|5">
+            <svg>
+              <filter>
                 <feTurbulence type="fractalNoise" />
-              </code></pre>
-            </div>
+                <feDiffuseLighting>
+                  <feDistantLight />
+                </feDiffuseLighting>
+              </filter>
+            </svg>
+          </code></pre>
+        </section>
+
+        <!-- 光源类型 -->
+        <section data-preload>
+          <h4>三种光源类型</h4>
+          <section>
+            <img src="https://docs.unity.cn/cn/2018.4/uploads/Main/Light-Point.jpg" />
           </section>
-      </section>
+          <section>
+            <img src="https://docs.unity.cn/cn/2018.4/uploads/Main/Light-Spot.jpg" />
+          </section>
+          <section>
+            <img src="https://docs.unity.cn/cn/2018.4/uploads/Main/Light-Direct.jpg" />
+          </section>
+        </section>
 
       </div>
     </div>
