@@ -1,0 +1,24 @@
+<!-- https://codepen.io/finnhvman/pen/VwpWWQE -->
+
+<svg>
+  <linearGradient id="gradient" x2="25" spreadMethod="reflect" gradientUnits="userSpaceOnUse">
+    <stop offset="50%" />
+    <stop offset="50%" stop-color="#fff" />
+  </linearGradient>
+  <filter id="filter">
+    <feTurbulence baseFrequency=".005" numOctaves="5" />
+    <feGaussianBlur stdDeviation="1" />
+    <feDisplacementMap in="SourceGraphic" scale="40" />
+  </filter>
+  <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#gradient)" filter="url(#filter)" />
+</svg>
+
+<style>
+  body {
+    display: flex;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>

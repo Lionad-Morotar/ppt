@@ -1,0 +1,20 @@
+<!-- https://codepen.io/Lionad/pen/poeeLKd -->
+
+<svg width="0" height="0">
+  <filter id="surface">
+    <feTurbulence type="fractalNoise" baseFrequency='0.03 0.06' numOctaves="30" />
+    <feDiffuseLighting in='noise' lighting-color='#ffe8d5' surfaceScale='2'>
+      <feDistantLight azimuth='5' elevation='2' />
+    </feDiffuseLighting>
+  </filter>
+</svg>
+
+<style>
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  filter: url(#surface);
+}
+</style>

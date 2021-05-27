@@ -27,19 +27,19 @@
         </section>
 
         <!-- 常见阴影效果 -->
-        <section data-preload data-background-iframe="./iframes/shadow-normal" data-background-interactive></section>
+        <section data-preload data-background-iframe="./iframes/shadow-normal"></section>
 
         <!-- 长阴影 -->
-        <section data-preload data-background-iframe="./iframes/long-shadow" data-background-interactive></section>
+        <section data-preload data-background-iframe="./iframes/long-shadow"></section>
 
         <!-- 彩色阴影 -->
-        <section data-preload data-background-iframe="./iframes/color-shadow" data-background-interactive></section>
+        <section data-preload data-background-iframe="./iframes/color-shadow"></section>
 
         <!-- 倒影 -->
-        <section data-preload data-background-iframe="./iframes/reflect" data-background-interactive></section>
+        <section data-preload data-background-iframe="./iframes/reflect"></section>
 
         <!-- 高光 -->
-        <section data-preload data-background-iframe="./iframes/flash" data-background-interactive></section>
+        <section data-preload data-background-iframe="./iframes/flash"></section>
 
         <!-- 高级光影效果 -->
         <section>
@@ -70,8 +70,8 @@
             <h4>制作一张贴图</h4>
             <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523020054.png" />
           </section>
-          <section data-preload data-background-iframe="./iframes/material-picture" data-background-interactive></section>
-          <section data-preload data-background-iframe="./iframes/material-picture/small" data-background-interactive></section>
+          <section data-preload data-background-iframe="./iframes/material-picture"></section>
+          <section data-preload data-background-iframe="./iframes/material-picture/small"></section>
         </section>
 
         <!-- SVG 材质标准模板 -->
@@ -103,6 +103,84 @@
           </section>
         </section>
 
+        <!-- 土壤纹理 -->
+        <section>
+          <section>
+            <h4>土壤纹理</h4>
+            <pre><code class="hlshtml" data-trim data-line-numbers="|4-6">
+              <svg>
+                <filter>
+                  <feTurbulence baseFrequency='0.03 0.06' />
+                  <feDiffuseLighting lighting-color='#ffe8d5' surfaceScale='2'>
+                    <feDistantLight azimuth='5' elevation='2' />
+                  </feDiffuseLighting>
+                </filter>
+              </svg>
+            </code></pre>
+          </section>
+          <section data-preload data-background-iframe="./iframes/soil-material"></section>
+        </section>
+
+        <!-- 石英石纹理 -->
+        <section>
+          <section>
+            <h4>石英石纹理</h4>
+            <pre><code class="hlshtml" data-trim data-line-numbers="|3|4-6">
+              <svg>
+                <filter>
+                  <feTurbulence baseFrequency='0.01 0.01' />
+                  <feDiffuseLighting lighting-color='#d2d2d2' surfaceScale='8'>
+                    <feDistantLight azimuth='111' elevation='40' />
+                  </feDiffuseLighting>
+                </filter>
+              </svg>
+            </code></pre>
+          </section>
+          <section data-preload data-background-iframe="./iframes/stone-material"></section>
+        </section>
+
+        <!-- 高级纹理 -->
+        <section>
+          <section data-preload data-background-iframe="./iframes/zebra-material"></section>
+          <section data-preload data-background-iframe="https://www.cssworld.cn/"></section>
+        </section>
+
+        <!-- 菲涅尔效应 -->
+        <section data-preload>
+          <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523160708.png" />
+        </section>
+
+        <!-- 菲涅尔效应 & 材质 -->
+        <section data-preload>
+          <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523163413.png" />
+        </section>
+
+        <!-- 水滴效果 -->
+        <section data-preload data-background-iframe="./iframes/dropplets">
+        </section>
+
+        <!-- 环境光遮罩 -->
+        <section>
+          <section>
+            <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210528003336.png" />
+          </section>
+          <section>
+            <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210528003347.png" />
+          </section>
+        </section>
+
+        <!-- 能用来做什么 -->
+        <section>
+          <section>
+            <h2>What can we make ?</h2>
+            <h4 class="fragment"><del>Make Games !</del></h4>
+            <h4 class="fragment">Play ! 🤩🤩🤩</h4>
+          </section>
+          <section data-preload data-background-iframe="./iframes/book-cover/1"></section>
+          <section data-preload data-background-iframe="./iframes/book-cover/2"></section>
+          <section data-preload data-background-iframe="./iframes/book-cover/3"></section>
+        </section>
+
       </div>
     </div>
 
@@ -115,13 +193,7 @@
       }).then(() => {
         Reveal.on('slidechanged', event => {
           const id = event.currentSlide.getAttribute('id')
-          switch (id) {
-            case 'section-baidu':
-              console.group('Help Info: ')
-              console.log('1. change iframe')
-              console.log("2. $$('*').map(x => (x.style.border = '1px solid'))")
-              console.groupEnd()
-          }
+          console.log('[id]', id)
         })
       })
     </script>

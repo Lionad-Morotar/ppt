@@ -1,0 +1,747 @@
+<!-- https://codepen.io/Lionad/pen/XWMMNKK -->
+
+<style>
+  :root {
+    --sf-img-2: url("https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2709063811.jpg");
+    --sf-img-3: url("https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2830217111.jpg");
+    --sf-img-4: url("https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s3360190011.jpg");
+  }
+</style>
+<style>
+  .wh-container {
+    display: flex;
+    border-radius: 3px;
+    overflow: hidden
+  }
+
+  .wh-container>.padding-box {
+    width: 0;
+    height: 0
+  }
+
+  @-webkit-keyframes grow-data-v-5ce8ec2a {
+    0% {
+      transform: scale(0)
+    }
+
+    50% {
+      transform: scale(1)
+    }
+
+    100% {
+      transform: scale(0)
+    }
+  }
+
+  @keyframes grow-data-v-5ce8ec2a {
+    0% {
+      transform: scale(0)
+    }
+
+    50% {
+      transform: scale(1)
+    }
+
+    100% {
+      transform: scale(0)
+    }
+  }
+
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+  }
+
+  :root {
+    --width-mobile: 888px;
+    --scrollbar-width: 0.625rem;
+    --sidebar-width: 25rem;
+    --navbar-height: 3.6rem;
+    --font-garamond: 'Garamond';
+    --font-code: 'Quote', 'Fira', 'Consolas', 'Monaco', 'Courier New', 'Courier', 'monospace';
+    --font-text: 'Quote', 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-text--noquote: 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-text--general: 'Quote', 'Noto Serif CJK', 'Consolas', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-text--bold: 'Quote', 'Noto Serif CJK BOLD', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-sidebar: 'Quote', 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --theme-color: #221522;
+    --theme-black: #221522;
+    --dark-black: #231622;
+    --medium-black: #300c22;
+    --light-black: #ccc;
+    --light-gray: #f9f9f9;
+    --medium-gray: #f2f2f2;
+    --color-background: #fff;
+    --text-black: #262626;
+    --text-black--lighter: #333;
+    --text-gray: #757575;
+    --text-gray--lighter: #b2b2b2;
+    --timing-slow: 0.5s;
+    --timing-norm: 0.3s;
+    --timing-quick: 0.2s;
+    --timing-light: 0.1s;
+    --timing-slow: 1s;
+    --timing-reduce: 999s;
+    --button-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='64' viewBox='0 0 16 32'%3E%3Cg fill='%23920000' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 24h4v2H0v-2zm0 4h6v2H0v-2zm0-8h2v2H0v-2zM0 0h4v2H0V0zm0 4h2v2H0V4zm16 20h-6v2h6v-2zm0 4H8v2h8v-2zm0-8h-4v2h4v-2zm0-20h-6v2h6V0zm0 4h-4v2h4V4zm-2 12h2v2h-2v-2zm0-8h2v2h-2V8zM2 8h10v2H2V8zm0 8h10v2H2v-2zm-2-4h14v2H0v-2zm4-8h6v2H4V4zm0 16h6v2H4v-2zM6 0h2v2H6V0zm0 30h2v2H6v-2z'/%3E%3C/g%3E%3C/svg%3E")
+  }
+
+  .page>.content__default ::selection {
+    background-color: rgba(230, 230, 250, 0.5)
+  }
+
+  ::-webkit-scrollbar {
+    position: absolute;
+    width: var(--scrollbar-width);
+    border-radius: 0;
+    background-color: var(--light-gray);
+    cursor: pointer
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 1px;
+    background-color: var(--light-gray);
+    cursor: pointer
+  }
+
+  ::-webkit-scrollbar-thumb {
+    height: var(--navbar-height);
+    border-radius: 1px;
+    background-color: var(--light-black);
+    -webkit-transition: var(--timing-norm);
+    transition: var(--timing-norm);
+    cursor: pointer
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--medium-black);
+    cursor: pointer
+  }
+
+  @keyframes background-move {
+    0% {
+      background-position: 0 0
+    }
+
+    100% {
+      background-position: 0 4rem
+    }
+  }
+
+  body::after {
+    content: 'Yeah~';
+    display: block;
+    position: fixed;
+    left: var(--pagex, 0);
+    top: var(--pagey, 0);
+    font-size: 12px;
+    font-weight: thin;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity var(--timing-slow);
+    transition-timing-function: cubic-bezier(0, 1, 0, 1);
+    pointer-events: none
+  }
+
+  body:active::after {
+    opacity: 1;
+    transition: 0;
+    transition-timing-function: cubic-bezier(1, 0, 1, -1.3)
+  }
+
+  @media (-moz-min-device-pixel-ratio:1.09) and (-moz-max-device-pixel-ratio:1.18),
+  (-webkit-min-device-pixel-ratio:1.09) and (-webkit-max-device-pixel-ratio:1.18),
+  (min-resolution:1.09dppx) and (max-resolution:1.18dppx) {
+
+    html,
+    body,
+    :root {
+      font-size: 14px
+    }
+  }
+
+  @media (-moz-min-device-pixel-ratio:1.19) and (-moz-max-device-pixel-ratio:1.28),
+  (-webkit-min-device-pixel-ratio:1.19) and (-webkit-max-device-pixel-ratio:1.28),
+  (min-resolution:1.19dppx) and (max-resolution:1.28dppx) {
+
+    html,
+    body,
+    :root {
+      font-size: 13px
+    }
+  }
+
+  @media (-moz-min-device-pixel-ratio:1.29) and (-moz-max-device-pixel-ratio:1.4),
+  (-webkit-min-device-pixel-ratio:1.29) and (-webkit-max-device-pixel-ratio:1.4),
+  (min-resolution:1.29dppx) and (max-resolution:1.4dppx) {
+
+    html,
+    body,
+    :root {
+      font-size: 12px
+    }
+  }
+
+  @media (-moz-min-device-pixel-ratio:1.41) and (-moz-max-device-pixel-ratio:1.6),
+  (-webkit-min-device-pixel-ratio:1.41) and (-webkit-max-device-pixel-ratio:1.6),
+  (min-resolution:1.41dppx) and (max-resolution:1.6dppx) {
+
+    html,
+    body,
+    :root {
+      font-size: 10px
+    }
+  }
+
+  @media (-moz-min-device-pixel-ratio:1.61) and (-moz-max-device-pixel-ratio:1.8),
+  (-webkit-min-device-pixel-ratio:1.61) and (-webkit-max-device-pixel-ratio:1.8),
+  (min-resolution:1.61dppx) and (max-resolution:1.8dppx) {
+
+    html,
+    body,
+    :root {
+      font-size: 9px
+    }
+  }
+
+  @media (-moz-min-device-pixel-ratio:1.81) and (-moz-max-device-pixel-ratio:2.1),
+  (-webkit-min-device-pixel-ratio:1.81) and (-webkit-max-device-pixel-ratio:2.1),
+  (min-resolution:1.81dppx) and (max-resolution:2.1dppx) {
+
+    html,
+    body,
+    :root {
+      font-size: 8px
+    }
+  }
+
+  @media (-moz-min-device-pixel-ratio:1.81) and (-moz-max-device-pixel-ratio:2.1) and (max-width:1440px),
+  (-webkit-min-device-pixel-ratio:1.81) and (-webkit-max-device-pixel-ratio:2.1) and (max-width:1440px),
+  (min-resolution:1.81dppx) and (max-resolution:2.1dppx) and (max-width:1440px) {
+
+    html,
+    body,
+    :root {
+      font-size: 14px
+    }
+  }
+
+  @media screen and (prefers-reduced-motion:reduce) {
+    :root {
+      --timing-reduce: 0s
+    }
+  }
+
+  ::selection {
+    background-color: rgba(230, 230, 250, 0.5)
+  }
+
+  @-webkit-keyframes nprogress-spinner {
+    0% {
+      transform: rotate(0deg)
+    }
+
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+
+  @keyframes nprogress-spinner {
+    0% {
+      transform: rotate(0deg)
+    }
+
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+
+  html {
+    scroll-behavior: smooth
+  }
+
+  .book-cover-fs-select:checked {
+    position: fixed;
+    top: 1em;
+    left: 0;
+    width: 100%;
+    line-height: 3em;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    z-index: 99999
+  }
+
+  .book-cover-fs-select:checked:before {
+    content: 'Close fullscreen'
+  }
+
+  .book-cover-fs-select:checked+.wh-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998
+  }
+
+  .book-cover-fs-select:checked+.wh-container .book {
+    min-width: 300px
+  }
+
+  .book-cover {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    overflow: hidden
+  }
+
+  .book-cover .paper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+  }
+
+  .book-cover .paper::before,
+  .book-cover .paper::after,
+  .book-cover .cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+  }
+
+  .book-cover-con .wh-container:nth-child(3) .paper::before {
+    filter: url(#book-cover-paper-1)
+  }
+
+  .book-cover-con .wh-container:nth-child(6) .paper::before {
+    filter: url(#book-cover-paper-2)
+  }
+
+  .book-cover-con .wh-container:nth-child(9) .paper::before {
+    filter: url(#book-cover-paper-3)
+  }
+
+  .book-cover .paper::after {
+    background: radial-gradient(ellipse at 100% 0%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.15) 70%, rgba(0, 0, 0, .1))
+  }
+
+  .book-cover .cover .paper {
+    mix-blend-mode: hard-light;
+    opacity: 0.2;
+    overflow: hidden
+  }
+
+  .book-cover .cover::after {
+    background: radial-gradient(ellipse at 100% 0%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.13) 30%, rgba(255, 255, 255, 0.05) 50%, rgba(0, 0, 0, .1));
+    background: radial-gradient(ellipse at 100% 0%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.06) 30%, rgba(255, 255, 255, 0.02) 50%, rgba(0, 0, 0, .3))
+  }
+
+  .book-cover .book {
+    position: relative;
+    margin-top: -1vh;
+    margin-right: -1vh;
+    width: 32%;
+    max-width: 600px;
+    font-size: 0;
+    box-shadow: -55px 40px 30px 0 rgb(0 0 0 / 10%), -27px 25px 35px -5px rgb(0 0 0 / 20%), -10px 10px 15px 5px rgb(0 0 0 / 10%), -12px 12px 10px 0 rgb(0 0 0 / 20%), -7px 7px 8px 0 rgb(0 0 0 / 10%), -5px 5px 5px 0 rgb(0 0 0 / 20%), -2px 2px 3px 0 rgb(0 0 0 / 30%);
+    filter: drop-shadow(-20px 20px 15px rgba(0, 0, 0, .65))
+  }
+
+  .book-cover .cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1
+  }
+
+  .book-cover .cover img {
+    border-radius: 2px
+  }
+
+  .book-cover .corner {
+    filter: blur(1px)
+  }
+
+  .book-cover .book::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(255, 255, 255, 0.08) 0%, transparent 0.5%), linear-gradient(to right, rgba(0, 0, 0, 0.1) 0.3%, rgba(255, 255, 255, 0.09) 1.1%, transparent 1.3%);
+    background-size: 50% 100%, 50% 100%;
+    background-position: 0% top, 9% top
+  }
+</style>
+<style>
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg)
+    }
+
+    to {
+      -webkit-transform: rotate(1turn);
+      transform: rotate(1turn)
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg)
+    }
+
+    to {
+      -webkit-transform: rotate(1turn);
+      transform: rotate(1turn)
+    }
+  }
+
+  @-webkit-keyframes pulse {
+    50% {
+      background: #dcdcdc
+    }
+  }
+
+  @keyframes pulse {
+    50% {
+      background: #dcdcdc
+    }
+  }
+</style>
+<style>
+  .sf-hidden {
+    display: none !important
+  }
+</style>
+<link rel=canonical href=http://localhost:8080/articles/awesome/css-book-ppt.html>
+</head>
+
+<body>
+  <div id=app>
+    <div class=theme-container>
+      <main class=page>
+        <div class="theme-default-content content__default">
+          <div class=book-cover-con><label>Open fullscreen: </label> <input type=checkbox class=book-cover-fs-select checked>
+            <div class=wh-container style=width:100%>
+              <div class=book-cover>
+                <div class=paper></div>
+                <div class=book>
+                  <div class=cover><img
+                      src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1490"><rect fill-opacity="0"/></svg>'
+                      style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-2)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+                    <div class=paper></div>
+                  </div> <img
+                    src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1490"><rect fill-opacity="0"/></svg>'
+                    class=corner
+                    style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-2)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+                </div>
+              </div> <svg width=0 height=0>
+                <filter id=book-cover-paper-1>
+                  <feturbulence type=fractalNoise baseFrequency=".95 .95" numOctaves=80 result=noise></feturbulence>
+                  <fediffuselighting in=noise lighting-color=#004F85 surfaceScale=.8 result=grind>
+                    <fedistantlight azimuth=500 elevation=50></fedistantlight>
+                  </fediffuselighting>
+                  <fegaussianblur in=grind stdDeviation=.5></fegaussianblur>
+                </filter>
+              </svg>
+              <div class=padding-box style=padding-top:68%></div>
+            </div> <label>Open fullscreen: </label> <input type=checkbox class=book-cover-fs-select>
+            <div class=wh-container style=width:100%>
+              <div class=book-cover>
+                <div class=paper></div>
+                <div class=book>
+                  <div class=cover><img
+                      src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1576"><rect fill-opacity="0"/></svg>'
+                      style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-3)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+                    <div class=paper></div>
+                  </div> <img
+                    src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1576"><rect fill-opacity="0"/></svg>'
+                    class=corner
+                    style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-3)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+                </div>
+              </div> <svg width=0 height=0>
+                <filter id=book-cover-paper-2>
+                  <feturbulence type=fractalNoise baseFrequency=".95 .95" numOctaves=80 result=noise></feturbulence>
+                  <fediffuselighting in=noise lighting-color=#ddd surfaceScale=.8 result=grind>
+                    <fedistantlight azimuth=500 elevation=50></fedistantlight>
+                  </fediffuselighting>
+                  <fegaussianblur in=grind stdDeviation=.5></fegaussianblur>
+                </filter>
+              </svg>
+              <div class=padding-box style=padding-top:68%></div>
+            </div> <label>Open fullscreen: </label> <input type=checkbox class=book-cover-fs-select>
+            <div class=wh-container style=width:100%>
+              <div class=book-cover>
+                <div class=paper></div>
+                <div class=book>
+                  <div class=cover><img
+                      src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1526"><rect fill-opacity="0"/></svg>'
+                      style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-4)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+                    <div class=paper></div>
+                  </div> <img
+                    src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1526"><rect fill-opacity="0"/></svg>'
+                    class=corner
+                    style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-4)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+                </div>
+              </div> <svg width=0 height=0>
+                <filter id=book-cover-paper-3>
+                  <feturbulence type=fractalNoise baseFrequency=".95 .95" numOctaves=80 result=noise></feturbulence>
+                  <fediffuselighting in=noise lighting-color=#7F191D surfaceScale=.8 result=grind>
+                    <fedistantlight azimuth=500 elevation=50></fedistantlight>
+                  </fediffuselighting>
+                  <fegaussianblur in=grind stdDeviation=.5></fegaussianblur>
+                </filter>
+              </svg>
+              <div class=padding-box style=padding-top:68%></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <style>
+    .theme-default-content:not(.custom) {}
+
+    @media (max-width:959px) {
+      .theme-default-content:not(.custom) {
+        padding: 2rem
+      }
+    }
+
+    @media (max-width:419px) {
+      .theme-default-content:not(.custom) {
+        padding: 1.5rem
+      }
+    }
+
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #fff
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #221521
+    }
+
+    .theme-default-content:not(.custom)>*:first-child {}
+
+    .theme-default-content:not(.custom) img {
+      max-width: 100%
+    }
+
+    :root {
+      --width-mobile: 888px;
+      --scrollbar-width: 0.625rem;
+      --sidebar-width: 25rem;
+      --navbar-height: 3.6rem;
+      --font-garamond: 'Garamond';
+      --font-code: 'Quote', 'Fira', 'Consolas', 'Monaco', 'Courier New', 'Courier', 'monospace';
+      --font-text: 'Quote', 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      --font-text--noquote: 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      --font-text--general: 'Quote', 'Noto Serif CJK', 'Consolas', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      --font-text--bold: 'Quote', 'Noto Serif CJK BOLD', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      --font-sidebar: 'Quote', 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      --theme-color: #221522;
+      --theme-black: #221522;
+      --dark-black: #231622;
+      --medium-black: #300c22;
+      --light-black: #ccc;
+      --light-gray: #f9f9f9;
+      --medium-gray: #f2f2f2;
+      --color-background: #fff;
+      --text-black: #262626;
+      --text-black--lighter: #333;
+      --text-gray: #757575;
+      --text-gray--lighter: #b2b2b2;
+      --timing-slow: 0.5s;
+      --timing-norm: 0.3s;
+      --timing-quick: 0.2s;
+      --timing-light: 0.1s;
+      --timing-slow: 1s;
+      --timing-reduce: 999s;
+      --button-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='64' viewBox='0 0 16 32'%3E%3Cg fill='%23920000' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 24h4v2H0v-2zm0 4h6v2H0v-2zm0-8h2v2H0v-2zM0 0h4v2H0V0zm0 4h2v2H0V4zm16 20h-6v2h6v-2zm0 4H8v2h8v-2zm0-8h-4v2h4v-2zm0-20h-6v2h6V0zm0 4h-4v2h4V4zm-2 12h2v2h-2v-2zm0-8h2v2h-2V8zM2 8h10v2H2V8zm0 8h10v2H2v-2zm-2-4h14v2H0v-2zm4-8h6v2H4V4zm0 16h6v2H4v-2zM6 0h2v2H6V0zm0 30h2v2H6v-2z'/%3E%3C/g%3E%3C/svg%3E")
+    }
+
+    html,
+    body {
+      font-size: 16px
+    }
+
+    .page>.content__default ::selection {
+      background-color: rgba(230, 230, 250, 0.5)
+    }
+
+    .page>.content__default input {
+      cursor: pointer
+    }
+
+    ::-webkit-scrollbar {
+      position: absolute;
+      width: var(--scrollbar-width);
+      border-radius: 0;
+      background-color: var(--light-gray);
+      cursor: pointer
+    }
+
+    ::-webkit-scrollbar-track {
+      border-radius: 1px;
+      background-color: var(--light-gray);
+      cursor: pointer
+    }
+
+    ::-webkit-scrollbar-thumb {
+      height: var(--navbar-height);
+      border-radius: 1px;
+      background-color: var(--light-black);
+      -webkit-transition: var(--timing-norm);
+      transition: var(--timing-norm);
+      cursor: pointer
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--medium-black);
+      cursor: pointer
+    }
+
+    @keyframes background-move {
+      0% {
+        background-position: 0 0
+      }
+
+      100% {
+        background-position: 0 4rem
+      }
+    }
+
+    body::after {
+      content: 'Yeah~';
+      display: block;
+      position: fixed;
+      left: var(--pagex, 0);
+      top: var(--pagey, 0);
+      font-size: 12px;
+      font-weight: thin;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity var(--timing-slow);
+      transition-timing-function: cubic-bezier(0, 1, 0, 1);
+      pointer-events: none
+    }
+
+    body:active::after {
+      opacity: 1;
+      transition: 0;
+      transition-timing-function: cubic-bezier(1, 0, 1, -1.3)
+    }
+
+    @media (-moz-min-device-pixel-ratio:1.09) and (-moz-max-device-pixel-ratio:1.18),
+    (-webkit-min-device-pixel-ratio:1.09) and (-webkit-max-device-pixel-ratio:1.18),
+    (min-resolution:1.09dppx) and (max-resolution:1.18dppx) {
+
+      html,
+      body,
+      :root {
+        font-size: 14px
+      }
+    }
+
+    @media (-moz-min-device-pixel-ratio:1.19) and (-moz-max-device-pixel-ratio:1.28),
+    (-webkit-min-device-pixel-ratio:1.19) and (-webkit-max-device-pixel-ratio:1.28),
+    (min-resolution:1.19dppx) and (max-resolution:1.28dppx) {
+
+      html,
+      body,
+      :root {
+        font-size: 13px
+      }
+    }
+
+    @media (-moz-min-device-pixel-ratio:1.29) and (-moz-max-device-pixel-ratio:1.4),
+    (-webkit-min-device-pixel-ratio:1.29) and (-webkit-max-device-pixel-ratio:1.4),
+    (min-resolution:1.29dppx) and (max-resolution:1.4dppx) {
+
+      html,
+      body,
+      :root {
+        font-size: 12px
+      }
+    }
+
+    @media (-moz-min-device-pixel-ratio:1.41) and (-moz-max-device-pixel-ratio:1.6),
+    (-webkit-min-device-pixel-ratio:1.41) and (-webkit-max-device-pixel-ratio:1.6),
+    (min-resolution:1.41dppx) and (max-resolution:1.6dppx) {
+
+      html,
+      body,
+      :root {
+        font-size: 10px
+      }
+    }
+
+    @media (-moz-min-device-pixel-ratio:1.61) and (-moz-max-device-pixel-ratio:1.8),
+    (-webkit-min-device-pixel-ratio:1.61) and (-webkit-max-device-pixel-ratio:1.8),
+    (min-resolution:1.61dppx) and (max-resolution:1.8dppx) {
+
+      html,
+      body,
+      :root {
+        font-size: 9px
+      }
+    }
+
+    @media (-moz-min-device-pixel-ratio:1.81) and (-moz-max-device-pixel-ratio:2.1),
+    (-webkit-min-device-pixel-ratio:1.81) and (-webkit-max-device-pixel-ratio:2.1),
+    (min-resolution:1.81dppx) and (max-resolution:2.1dppx) {
+
+      html,
+      body,
+      :root {
+        font-size: 8px
+      }
+    }
+
+    @media (-moz-min-device-pixel-ratio:1.81) and (-moz-max-device-pixel-ratio:2.1) and (max-width:1440px),
+    (-webkit-min-device-pixel-ratio:1.81) and (-webkit-max-device-pixel-ratio:2.1) and (max-width:1440px),
+    (min-resolution:1.81dppx) and (max-resolution:2.1dppx) and (max-width:1440px) {
+
+      html,
+      body,
+      :root {
+        font-size: 14px
+      }
+    }
+
+    @media screen and (prefers-reduced-motion:reduce) {
+      :root {
+        --timing-reduce: 0s
+      }
+    }
+
+    html {
+      width: 100%;
+      height: unset
+    }
+
+    ::selection {
+      background-color: rgba(230, 230, 250, 0.5)
+    }
+  </style>
