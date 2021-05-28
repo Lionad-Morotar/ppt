@@ -14,4 +14,5 @@
 
 ## 分享列表
 
-- [《纯 CSS 抗锯齿方案 POAA》](./ppt/poaa)
+- [《CSS 抗锯齿方案 POAA》](./ppt/poaa)
+- [《CSS 光影魔法》](./ppt/light-travel)
