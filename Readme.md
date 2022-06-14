@@ -14,5 +14,6 @@
 
 ## 分享列表
 
-- [《CSS 抗锯齿方案 POAA》](./ppt/poaa)
-- [《CSS 光影魔法》](./ppt/light-travel)
+- [《CSS 抗锯齿方案 POAA》](./ppt/poaa)：如果解决 CSS 背景中的锯齿？
+- [《CSS 光影魔法》](./ppt/light-travel)：如何用 CSS 仿制拟真的阴影效果？
+
