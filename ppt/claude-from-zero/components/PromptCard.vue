@@ -32,25 +32,22 @@ const props = withDefaults(defineProps<{
 .cmpt-prompt-card {
   position: relative;
   padding: 1.5rem;
-  border-radius: 1.5rem;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
-    linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(236, 72, 153, 0.12));
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 18px 50px rgba(9, 12, 30, 0.45);
+  border: 2px solid #16110f;
+  background: #f8f1e6;
+  box-shadow: 0.6rem 0.6rem 0 #16110f;
 }
 
 .cmpt-prompt-card__eyebrow {
-  color: rgba(244, 114, 182, 0.9);
+  color: #a33124;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.72rem;
+  font-weight: 700;
 }
 
 .cmpt-prompt-card__title {
   margin-top: 0.55rem;
-  color: white;
+  color: #16110f;
   font-size: 1.2rem;
   font-weight: 700;
 }
@@ -59,7 +56,7 @@ const props = withDefaults(defineProps<{
   margin-top: 1rem;
   display: grid;
   gap: 0.7rem;
-  color: rgba(226, 232, 240, 0.92);
+  color: #4d433d;
   font-size: 0.95rem;
   line-height: 1.6;
 }

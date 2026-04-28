@@ -115,40 +115,40 @@ function reset() {
       />
 
       <g v-for="(label, index) in props.inputLabels" :key="label">
-        <circle cx="72" :cy="nodes.inputY[index]" r="12" fill="#3b82f6" />
-        <text x="48" :y="nodes.inputY[index] + 4" text-anchor="end" font-size="11" fill="#cbd5e1">
+        <circle cx="72" :cy="nodes.inputY[index]" r="12" fill="#16110f" />
+        <text x="48" :y="nodes.inputY[index] + 4" text-anchor="end" font-size="11" fill="#4d433d">
           {{ label }}
         </text>
       </g>
 
       <g v-if="activeStep >= 1" v-for="(hiddenY, index) in nodes.hiddenY" :key="`hidden-${index}`">
-        <rect x="206" :y="hiddenY - 14" width="28" height="28" rx="8" fill="#8b5cf6" opacity="0.95" />
+        <rect x="206" :y="hiddenY - 14" width="28" height="28" fill="#a33124" opacity="0.95" />
       </g>
-      <text v-if="activeStep >= 1" x="220" y="18" text-anchor="middle" font-size="11" fill="#cbd5e1">
+      <text v-if="activeStep >= 1" x="220" y="18" text-anchor="middle" font-size="11" fill="#4d433d">
         隐藏层
       </text>
 
       <g v-if="activeStep >= 2">
-        <circle cx="370" :cy="nodes.outputY" r="18" :fill="activeStep >= 3 ? '#22c55e' : '#f59e0b'" />
-        <text x="370" :y="nodes.outputY + 4" text-anchor="middle" font-size="12" font-weight="700" fill="white">
+        <circle cx="370" :cy="nodes.outputY" r="18" :fill="activeStep >= 3 ? '#a33124' : '#d0bfa6'" />
+        <text x="370" :y="nodes.outputY + 4" text-anchor="middle" font-size="12" font-weight="700" :fill="activeStep >= 3 ? '#f8f1e6' : '#16110f'">
           {{ activeStep >= 3 ? props.outputLabel : '?' }}
         </text>
       </g>
-      <text v-if="activeStep >= 3" x="402" :y="nodes.outputY - 6" font-size="12" fill="#86efac">
+      <text v-if="activeStep >= 3" x="402" :y="nodes.outputY - 6" font-size="12" fill="#6e1f16">
         0.95
       </text>
     </svg>
 
     <div class="mt-3 flex justify-center gap-3">
       <button
-        class="rounded-full border border-sky-400/40 bg-sky-500/20 px-4 py-2 text-sm text-white"
+        class="border-2 border-[#16110f] bg-[#a33124] px-4 py-2 text-sm text-[#f8f1e6]"
         :disabled="isPlaying"
         @click="play"
       >
         {{ isPlaying ? '计算中...' : '前向传播' }}
       </button>
       <button
-        class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200"
+        class="border-2 border-[#16110f] bg-[#f8f1e6] px-4 py-2 text-sm text-[#16110f]"
         @click="reset"
       >
         重置

@@ -15,6 +15,7 @@ fonts:
   mono: 'JetBrains Mono, SFMono-Regular, monospace'
 ---
 
+
 ---
 layout: cover
 class: page-claude-from-zero page-home
@@ -36,9 +37,9 @@ class: page-claude-from-zero page-home
       <span>从概念到产物</span>
       <span>Lionad</span>
     </div>
-    <div class="mt-8 text-sm text-slate-300">
+    <div class="mt-8 text-sm">
       GitHub:
-      <a href="https://github.com/Lionad-Morotar" target="_blank" class="text-fuchsia-200 hover:text-white">
+      <a href="https://github.com/Lionad-Morotar" target="_blank">
         Lionad-Morotar
       </a>
     </div>
@@ -98,7 +99,7 @@ class: page-claude-from-zero
   </div>
 
   <div class="cmpt-panel rounded-[1.7rem] p-6">
-    <div class="text-sm uppercase tracking-[0.18em] text-fuchsia-200">After 90 min</div>
+    <div class="text-sm uppercase tracking-[0.18em]">After 90 min</div>
     <ul class="cmpt-bullet-list mt-5">
       <li>对 token、大模型、MCP、skills、agent、vibe coding 有清晰概念。</li>
       <li>知道如何使用 Claude Code 走完一个微型应用的完整生命周期。</li>
@@ -174,19 +175,19 @@ class: page-claude-from-zero
 
   <div class="cmpt-side-stack">
     <div class="cmpt-panel rounded-[1.5rem] p-5">
-      <div class="text-sm uppercase tracking-[0.16em] text-sky-200">Working Model</div>
+      <div class="text-sm uppercase tracking-[0.16em]">Working Model</div>
       <div class="mt-5 grid grid-cols-3 gap-3 text-center">
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-          <div class="text-sm text-slate-300">Input</div>
-          <div class="mt-2 text-xl text-white">垫</div>
+        <div class="border-2 border-[#16110f] bg-[#f8f1e6] p-4">
+          <div class="text-sm">Input</div>
+          <div class="mt-2 text-xl">垫</div>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-          <div class="text-sm text-slate-300">Process</div>
-          <div class="mt-2 text-xl text-white">控制</div>
+        <div class="border-2 border-[#16110f] bg-[#f8f1e6] p-4">
+          <div class="text-sm">Process</div>
+          <div class="mt-2 text-xl">控制</div>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-          <div class="text-sm text-slate-300">Output</div>
-          <div class="mt-2 text-xl text-white">质量</div>
+        <div class="border-2 border-[#16110f] bg-[#f8f1e6] p-4">
+          <div class="text-sm">Output</div>
+          <div class="mt-2 text-xl">质量</div>
         </div>
       </div>
     </div>
@@ -267,15 +268,15 @@ class: page-claude-from-zero
 
   <div class="cmpt-panel rounded-[1.7rem] p-6">
     <div class="grid grid-cols-2 gap-4">
-      <div class="rounded-[1.2rem] bg-white/5 p-4 border border-white/10">
-        <div class="text-sm text-slate-300">传统方法</div>
-        <pre class="mt-4 text-xs leading-6 text-slate-100 whitespace-pre-wrap">if red and round and sweet:
+      <div class="border-2 border-[#16110f] bg-[#f8f1e6] p-4">
+        <div class="text-sm">传统方法</div>
+        <pre class="mt-4 text-xs leading-6 text-[#16110f] whitespace-pre-wrap">if red and round and sweet:
   return apple
 else:
   return ?</pre>
       </div>
-      <div class="rounded-[1.2rem] bg-white/5 p-4 border border-white/10">
-        <div class="text-sm text-slate-300">机器学习</div>
+      <div class="border-2 border-[#16110f] bg-[#f8f1e6] p-4">
+        <div class="text-sm">机器学习</div>
         <div class="mt-4 text-sm leading-7">
           数据输入
           <br />
@@ -639,9 +640,9 @@ class: page-claude-from-zero
   </div>
 
   <div class="cmpt-panel rounded-[2rem] p-6">
-    <div class="text-white text-xl font-semibold">从 0 到网站</div>
-    <div class="mt-6 h-4 rounded-full bg-white/8 overflow-hidden">
-      <div class="h-full w-[86%] rounded-full bg-gradient-to-r from-fuchsia-400 via-violet-400 to-sky-400 shadow-[0_0_32px_rgba(168,85,247,0.45)]" />
+    <div class="text-xl font-semibold">从 0 到网站</div>
+    <div class="mt-6 h-4 overflow-hidden border-2 border-[#16110f] bg-[#d8c8b2]">
+      <div class="h-full w-[86%] bg-[#a33124]" />
     </div>
     <div class="mt-6 text-sm leading-7">
       Prompt 设计 -> 并行收集知识 -> 零代码 Nuxt 建站 -> 演示部署上线
@@ -710,7 +711,7 @@ class: page-claude-from-zero
   <div class="cmpt-kicker">End / Closing</div>
   <div class="mt-8 flex items-end gap-6">
     <div class="cmpt-end-mark">0</div>
-    <div class="cmpt-end-mark text-fuchsia-300">1</div>
+    <div class="cmpt-end-mark" style="color: #a33124;">1</div>
     <div class="cmpt-end-mark cmpt-grad-text">∞</div>
   </div>
   <h1 class="mt-8">谢谢</h1>

@@ -54,25 +54,21 @@ useIntervalFn(() => {
 
 .cmpt-tokenization-flow__token {
   padding: 0.7rem 0.95rem;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(226, 232, 240, 0.86);
+  background: #e4d7c3;
+  border: 2px solid #16110f;
+  color: #16110f;
   transition: all 240ms ease;
 }
 
 .cmpt-tokenization-flow__token.is-active {
-  color: white;
-  background:
-    linear-gradient(135deg, rgba(244, 114, 182, 0.35), rgba(59, 130, 246, 0.3)),
-    rgba(15, 23, 42, 0.92);
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 0 24px rgba(192, 132, 252, 0.22);
+  color: #f8f1e6;
+  background: #a33124;
+  border-color: #16110f;
   transform: translateY(-4px);
 }
 
 .cmpt-tokenization-flow__hint {
-  color: rgba(191, 219, 254, 0.86);
+  color: #6e1f16;
   font-size: 0.93rem;
 }
 </style>

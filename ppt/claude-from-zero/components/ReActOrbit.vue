@@ -3,10 +3,10 @@ import { ref } from 'vue'
 import { useIntervalFn } from '@vueuse/core'
 
 const stages = [
-  { label: 'Reason', angle: -90, color: '#a855f7' },
-  { label: 'Act', angle: -10, color: '#f97316' },
-  { label: 'Observe', angle: 70, color: '#38bdf8' },
-  { label: 'Recover', angle: 150, color: '#34d399' },
+  { label: 'Reason', angle: -90, color: '#a33124' },
+  { label: 'Act', angle: -10, color: '#16110f' },
+  { label: 'Observe', angle: 70, color: '#6e1f16' },
+  { label: 'Recover', angle: 150, color: '#7f7467' },
 ]
 
 const activeIndex = ref(0)
@@ -53,10 +53,7 @@ useIntervalFn(() => {
   position: absolute;
   inset: 2.2rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow:
-    inset 0 0 28px rgba(139, 92, 246, 0.15),
-    0 0 45px rgba(56, 189, 248, 0.08);
+  border: 2px solid #16110f;
 }
 
 .cmpt-react-orbit__core {
@@ -66,23 +63,20 @@ useIntervalFn(() => {
   place-content: center;
   text-align: center;
   border-radius: 999px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05)),
-    rgba(12, 18, 46, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(14px);
+  background: #f8f1e6;
+  border: 2px solid #16110f;
 }
 
 .cmpt-react-orbit__title {
   font-size: 1.35rem;
   font-weight: 700;
-  color: white;
+  color: #16110f;
 }
 
 .cmpt-react-orbit__hint {
   margin-top: 0.45rem;
   font-size: 0.88rem;
-  color: rgba(196, 181, 253, 0.95);
+  color: #6e1f16;
 }
 
 .cmpt-react-orbit__node {
@@ -93,10 +87,10 @@ useIntervalFn(() => {
   place-content: center;
   width: 6rem;
   height: 6rem;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.84);
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  color: rgba(255, 255, 255, 0.82);
+  border-radius: 0;
+  background: #f8f1e6;
+  border: 2px solid #16110f;
+  color: #16110f;
   font-size: 0.92rem;
   transform:
     translate(-50%, -50%)
@@ -107,9 +101,9 @@ useIntervalFn(() => {
 }
 
 .cmpt-react-orbit__node.is-active {
-  color: white;
-  border-color: color-mix(in srgb, var(--cmpt-react-orbit-color) 68%, white);
-  box-shadow: 0 0 32px color-mix(in srgb, var(--cmpt-react-orbit-color) 45%, transparent);
+  color: #f8f1e6;
+  background: var(--cmpt-react-orbit-color);
+  border-color: #16110f;
   transform:
     translate(-50%, -50%)
     rotate(var(--cmpt-react-orbit-angle))

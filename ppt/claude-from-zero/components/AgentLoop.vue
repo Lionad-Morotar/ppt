@@ -5,12 +5,12 @@ const step = ref(0)
 const isPlaying = ref(false)
 
 const steps = [
-  { label: '用户输入', desc: '帮我查昨日出海订单', color: '#3b82f6' },
-  { label: '推理', desc: '我需要调用查询订单工具', color: '#8b5cf6' },
-  { label: '工具调用', desc: 'query_orders(date="昨日")', color: '#f59e0b' },
-  { label: '工具执行', desc: '数据库返回 42 单', color: '#22c55e' },
-  { label: '观察', desc: '结果成立，可以继续', color: '#06b6d4' },
-  { label: '输出', desc: '昨日出海订单共 42 单', color: '#ef4444' },
+  { label: '用户输入', desc: '帮我查昨日出海订单', color: '#16110f' },
+  { label: '推理', desc: '我需要调用查询订单工具', color: '#a33124' },
+  { label: '工具调用', desc: 'query_orders(date="昨日")', color: '#7f7467' },
+  { label: '工具执行', desc: '数据库返回 42 单', color: '#d0bfa6' },
+  { label: '观察', desc: '结果成立，可以继续', color: '#6e1f16' },
+  { label: '输出', desc: '昨日出海订单共 42 单', color: '#a33124' },
 ]
 
 const connections = computed(() => {
@@ -63,7 +63,7 @@ function setStep(nextStep: number) {
     <svg viewBox="0 0 640 240" class="w-full h-56">
       <defs>
         <marker id="cmpt-agent-loop-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-          <polygon points="0 0, 6 3, 0 6" fill="#94a3b8" />
+          <polygon points="0 0, 6 3, 0 6" fill="#16110f" />
         </marker>
       </defs>
 
@@ -74,7 +74,7 @@ function setStep(nextStep: number) {
         y1="86"
         :x2="168 + connection.from * 98"
         y2="86"
-        :stroke="connection.active ? steps[connection.to].color : '#334155'"
+        :stroke="connection.active ? steps[connection.to].color : '#7f7467'"
         stroke-width="3"
         stroke-dasharray="6 4"
         marker-end="url(#cmpt-agent-loop-arrow)"
@@ -83,7 +83,7 @@ function setStep(nextStep: number) {
       <path
         d="M 560 96 Q 590 160, 325 194 Q 70 160, 88 112"
         fill="none"
-        stroke="#334155"
+        stroke="#7f7467"
         stroke-width="3"
         stroke-dasharray="6 4"
         marker-end="url(#cmpt-agent-loop-arrow)"
@@ -100,9 +100,8 @@ function setStep(nextStep: number) {
           y="54"
           width="76"
           height="64"
-          rx="18"
-          :fill="step > index ? item.color : '#0f172a'"
-          :stroke="step > index ? item.color : '#334155'"
+          :fill="step > index ? item.color : '#f8f1e6'"
+          :stroke="'#16110f'"
           stroke-width="2"
         />
         <text
@@ -111,7 +110,7 @@ function setStep(nextStep: number) {
           text-anchor="middle"
           font-size="13"
           font-weight="700"
-          :fill="step > index ? 'white' : '#cbd5e1'"
+          :fill="step > index ? '#f8f1e6' : '#16110f'"
         >
           {{ item.label }}
         </text>
@@ -120,7 +119,7 @@ function setStep(nextStep: number) {
       <foreignObject x="60" y="154" width="520" height="56">
         <div
           xmlns="http://www.w3.org/1999/xhtml"
-          class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-center text-sm text-slate-200"
+          class="border-2 border-[#16110f] bg-[#f8f1e6] px-4 py-3 text-center text-sm text-[#4d433d]"
         >
           {{ step > 0 ? steps[step - 1].desc : '点击按钮，演示一次完整的 ReAct 循环。' }}
         </div>
@@ -129,14 +128,14 @@ function setStep(nextStep: number) {
 
     <div class="mt-3 flex justify-center gap-3">
       <button
-        class="rounded-full border border-fuchsia-400/40 bg-fuchsia-500/20 px-4 py-2 text-sm text-white"
+        class="border-2 border-[#16110f] bg-[#a33124] px-4 py-2 text-sm text-[#f8f1e6]"
         :disabled="isPlaying"
         @click="play"
       >
         {{ isPlaying ? '运行中...' : '演示循环' }}
       </button>
       <button
-        class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200"
+        class="border-2 border-[#16110f] bg-[#f8f1e6] px-4 py-2 text-sm text-[#16110f]"
         @click="reset"
       >
         重置

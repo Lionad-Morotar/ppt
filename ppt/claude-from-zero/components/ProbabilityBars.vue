@@ -3,11 +3,11 @@ import { computed, ref } from 'vue'
 import { useIntervalFn } from '@vueuse/core'
 
 const candidates = [
-  { token: 'Agent', probability: 0.42, color: 'from-fuchsia-500 to-violet-500' },
-  { token: 'Tool', probability: 0.24, color: 'from-sky-500 to-cyan-500' },
-  { token: 'Prompt', probability: 0.18, color: 'from-amber-400 to-orange-500' },
-  { token: 'Skill', probability: 0.1, color: 'from-emerald-400 to-teal-500' },
-  { token: 'Hallucination', probability: 0.06, color: 'from-rose-500 to-pink-500' },
+  { token: 'Agent', probability: 0.42, color: '#16110f' },
+  { token: 'Tool', probability: 0.24, color: '#a33124' },
+  { token: 'Prompt', probability: 0.18, color: '#7f7467' },
+  { token: 'Skill', probability: 0.1, color: '#d0bfa6' },
+  { token: 'Hallucination', probability: 0.06, color: '#6e1f16' },
 ]
 
 const activeIndex = ref(0)
@@ -36,8 +36,7 @@ useIntervalFn(() => {
       <div class="cmpt-probability-bars__track">
         <div
           class="cmpt-probability-bars__fill"
-          :class="candidate.color"
-          :style="{ width: `${candidate.probability * 100}%` }"
+          :style="{ width: `${candidate.probability * 100}%`, background: candidate.color }"
         />
       </div>
     </div>
@@ -75,31 +74,28 @@ useIntervalFn(() => {
 }
 
 .cmpt-probability-bars__token {
-  color: rgba(255, 255, 255, 0.94);
+  color: #16110f;
 }
 
 .cmpt-probability-bars__value {
-  color: rgba(226, 232, 240, 0.82);
+  color: #6e1f16;
   font-variant-numeric: tabular-nums;
 }
 
 .cmpt-probability-bars__track {
   overflow: hidden;
   height: 0.85rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #e4d7c3;
+  border: 2px solid #16110f;
 }
 
 .cmpt-probability-bars__fill {
   height: 100%;
-  border-radius: 999px;
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
 }
 
 .cmpt-probability-bars__footer {
   margin-top: 0.6rem;
-  color: rgba(196, 181, 253, 0.96);
+  color: #6e1f16;
   font-size: 0.92rem;
 }
 </style>
