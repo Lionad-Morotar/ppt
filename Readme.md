@@ -18,4 +18,5 @@
 
 - [2021-04-20《CSS 抗锯齿方案 POAA》](./ppt/poaa)：如何解决 CSS 背景中的锯齿？
 - [2022-06-15《CSS 光影魔法》](./ppt/light-travel)：如何用 CSS 仿制拟真的阴影效果？
+- [2026-04-29《Claude from ZERO》](./ppt/claude-from-zerro)：尝试给听众弥合 AI 0基础和理解及使用 Claude 之间的鸿沟。
 
