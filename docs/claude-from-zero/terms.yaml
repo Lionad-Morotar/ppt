@@ -1,0 +1,362 @@
+# PPT 术语表
+# 使用方式: <terms :term="对应 id" />
+# 字段说明:
+#   id: 唯一标识符，对应 terms 组件的 term 属性
+#   displayName: 术语主显示名（英文或缩写）
+#   cnName: 中文名
+#   cnEnName: 中文（English）格式
+#   brief: 一句话解释，用于 tooltip 展示
+#   urls: 参考链接列表，指向 website/contents 相关章节
+
+terms:
+  - id: token
+    displayName: Token
+    enName: Token
+    prefer: en
+    cnName: 词元
+    cnEnName: 词元（Token）
+    brief: LLM 处理文本的最小单元。一段话被分词器切分成许多 token，再进入神经网络计算。
+    urls:
+      - /intro/llm-probability
+      - /appendix/ai-terminology
+
+  - id: llm
+    displayName: LLM
+    enName: LLM
+    prefer: en
+    cnName: 大语言模型
+    cnEnName: 大语言模型（LLM）
+    brief: 基于 Transformer 架构、通过海量文本预训练的大规模神经网络模型，核心机制是 Next-Token Prediction。
+    urls:
+      - /intro/llm-probability
+      - /appendix/ai-terminology
+
+  - id: neural-network
+    displayName: Neural Network
+    enName: Neural Network
+    prefer: en
+    cnName: 神经网络
+    cnEnName: 神经网络（Neural Network）
+    brief: 模拟人脑神经结构的机器学习模型，由输入层、隐藏层、输出层组成，通过并行处理综合感知输入特征。
+    urls:
+      - /intro/llm-probability
+      - /appendix/ai-terminology
+
+  - id: input-layer
+    displayName: Input Layer
+    enName: Input Layer
+    prefer: en
+    cnName: 输入层
+    cnEnName: 输入层（Input Layer）
+    brief: 神经网络的第一层，接收颜色、形状、气味等属性并并行输入到网络中。
+    urls:
+      - /intro/llm-probability
+
+  - id: hidden-layer
+    displayName: Hidden Layer
+    enName: Hidden Layer
+    prefer: en
+    cnName: 隐藏层
+    cnEnName: 隐藏层（Hidden Layer）
+    brief: 神经网络中间的运算层，发生复杂计算但过程不可直接解释，是模型的"黑盒"部分。
+    urls:
+      - /intro/llm-probability
+
+  - id: output-layer
+    displayName: Output Layer
+    enName: Output Layer
+    prefer: en
+    cnName: 输出层
+    cnEnName: 输出层（Output Layer）
+    brief: 神经网络的最后一层，输出计算结果，例如"这是苹果"的概率值。
+    urls:
+      - /intro/llm-probability
+
+  - id: weights
+    displayName: Weights
+    enName: Weights
+    prefer: en
+    cnName: 权重
+    cnEnName: 权重（Weights）
+    brief: 神经网络中节点之间的连接数值，训练过程就是不断调整权重使输出逼近正确答案。
+    urls:
+      - /intro/llm-probability
+      - /appendix/ai-terminology
+
+  - id: loss
+    displayName: Loss
+    enName: Loss
+    prefer: en
+    cnName: 损失
+    cnEnName: 损失（Loss）
+    brief: 模型输出与正确答案之间的差距。损失越小，说明模型学得越好。
+    urls:
+      - /intro/llm-probability
+
+  - id: gradient-descent
+    displayName: Gradient Descent
+    enName: Gradient Descent
+    prefer: en
+    cnName: 梯度下降
+    cnEnName: 梯度下降（Gradient Descent）
+    brief: 训练神经网络的优化算法，通过不断调整参数让"损失小球"滚向低处，使模型输出逼近正确答案。
+    urls:
+      - /intro/llm-probability
+
+  - id: emergence
+    displayName: Emergence
+    enName: Emergence
+    prefer: en
+    cnName: 涌现
+    cnEnName: 涌现（Emergence）
+    brief: 模型参数规模突破临界点后，突然捕获小型网络抓不住的特征，能力发生跃升。
+    urls:
+      - /intro/llm-probability
+      - /appendix/ai-terminology
+
+  - id: fine-tuning
+    displayName: Fine-tuning
+    enName: Fine-tuning
+    prefer: en
+    cnName: 微调
+    cnEnName: 微调（Fine-tuning）
+    brief: 在预训练好的模型基础上，用特定领域数据继续训练，使模型适应特定任务。
+    urls:
+      - /intro/llm-probability
+      - /appendix/ai-terminology
+
+  - id: hallucination
+    displayName: Hallucination
+    enName: Hallucination
+    prefer: en
+    cnName: 幻觉
+    cnEnName: 幻觉（Hallucination）
+    brief: 模型生成看似合理但实际错误的内容，是概率生成机制的固有特性。
+    urls:
+      - /intro/llm-probability
+      - /mindset/context-management
+      - /appendix/ai-terminology
+
+  - id: reasoning-budget
+    displayName: Reasoning Budget
+    enName: Reasoning Budget
+    prefer: en
+    cnName: 推理预算
+    cnEnName: 推理预算（Reasoning Budget）
+    brief: 模型"内心戏"的长短设置。预算越高推理越充分；供应商削减预算会导致模型"降智"。
+    urls:
+      - /intro/llm-probability
+
+  - id: chat
+    displayName: Chat
+    enName: Chat
+    prefer: en
+    cnName: 对话补全
+    cnEnName: 对话补全（Chat Completion）
+    brief: 工程上把 LLM 的输入输出包装成用户与助手角色交替的对话形式，本质仍是输入→输出的概率生成。
+    urls:
+      - /intro/from-chatbot-to-agent
+      - /appendix/ai-terminology
+
+  - id: agent
+    displayName: Agent
+    enName: Agent
+    prefer: en
+    cnName: 智能体
+    cnEnName: Agent（智能体）
+    brief: 基于 LLM 的自主系统，能感知环境、制定计划、调用工具并迭代执行，直到完成目标。
+    urls:
+      - /intro/from-chatbot-to-agent
+      - /appendix/ai-terminology
+
+  - id: prompt
+    displayName: Prompt
+    enName: Prompt
+    prefer: en
+    cnName: 提示词
+    cnEnName: 提示词（Prompt）
+    brief: 用户向 LLM 提供的输入文本，用于引导模型生成期望输出。
+    urls:
+      - /mindset/prompt-design
+      - /appendix/ai-terminology
+
+  - id: system-prompt
+    displayName: System Prompt
+    enName: System Prompt
+    prefer: en
+    cnName: 系统提示
+    cnEnName: 系统提示（System Prompt）
+    brief: 内置于模型或应用中的角色设定，定义模型的行为边界和输出格式。
+    urls:
+      - /mindset/prompt-design
+      - /appendix/ai-terminology
+
+  - id: prompt-engineering
+    displayName: Prompt Engineering
+    enName: Prompt Engineering
+    prefer: en
+    cnName: 提示词工程
+    cnEnName: 提示词工程（Prompt Engineering）
+    brief: 研究如何写好提示词以引导模型输出的学问，2023 年特别流行。
+    urls:
+      - /mindset/prompt-design
+      - /appendix/ai-terminology
+
+  - id: crispe
+    displayName: CRISPE
+    enName: CRISPE
+    prefer: en
+    cnName: CRISPE 框架
+    cnEnName: CRISPE 框架
+    brief: 写好提示词的框架：Capacity/Role（角色）、Reason（原因）、Insight（洞察）、Statement（指令）、Personality（风格）、Experiment（尝试）。
+    urls:
+      - /mindset/prompt-design
+
+  - id: react
+    displayName: ReAct
+    enName: ReAct
+    prefer: en
+    cnName: ReAct 循环
+    cnEnName: ReAct 循环
+    brief: Reasoning（推理）+ Acting（行动）的交替循环：模型推理→调用工具→观察结果→再推理，直到任务完成。
+    urls:
+      - /intro/agentic-loop
+      - /intro/from-chatbot-to-agent
+
+  - id: tool-call
+    displayName: Tool Call
+    enName: Tool Call
+    prefer: en
+    cnName: 工具调用
+    cnEnName: 工具调用（Tool Call）
+    brief: 模型生成结构化参数调用外部函数的能力，是 Agent 扩展能力边界的核心机制。
+    urls:
+      - /intro/agentic-loop
+      - /intro/from-chatbot-to-agent
+
+  - id: error-recovery
+    displayName: Error Recovery
+    enName: Error Recovery
+    prefer: en
+    cnName: 错误恢复
+    cnEnName: 错误恢复（Error Recovery）
+    brief: Agent 在执行过程中某次工具调用出错后，能在下一次推理中发现并修正错误的能力。
+    urls:
+      - /intro/agentic-loop
+
+  - id: long-horizon-task
+    displayName: Long-Horizon Task
+    enName: Long-Horizon Task
+    prefer: en
+    cnName: 长程任务
+    cnEnName: 长程任务（Long-Horizon Task）
+    brief: Agent 执行时间特别长（可能数小时）的复杂任务，需要持续的 ReAct 循环和上下文管理。
+    urls:
+      - /intro/agentic-loop
+
+  - id: mcp
+    displayName: MCP
+    enName: MCP
+    prefer: en
+    cnName: 模型上下文协议
+    cnEnName: 模型上下文协议（MCP）
+    brief: Anthropic 推出的开放协议，标准化 AI 系统与外部工具、数据源的连接方式，被称为"AI 世界的 USB-C"。
+    urls:
+      - /advanced/mcp
+      - /appendix/ai-terminology
+
+  - id: a2a
+    displayName: A2A
+    enName: A2A
+    prefer: en
+    cnName: Agent 间通信协议
+    cnEnName: Agent 间通信协议（A2A）
+    brief: Agent to Agent Protocol，Agent 与 Agent 之间的通信协议，让多个 Agent 可以协作完成任务。
+    urls:
+      - /intro/from-chatbot-to-agent
+      - /appendix/ai-terminology
+
+  - id: skills
+    displayName: Skills
+    enName: Skills
+    prefer: en
+    cnName: 技能
+    cnEnName: 技能（Skills）
+    brief: 把 Agent 执行得好的流程总结成文档，告诉它"以后做 X 就参考这份文档"。与 MCP 的区别：Skills 教"怎么做"，MCP 教"连什么"。
+    urls:
+      - /advanced/skills
+      - /appendix/ai-terminology
+
+  - id: rag
+    displayName: RAG
+    enName: RAG
+    prefer: en
+    cnName: 检索增强生成
+    cnEnName: 检索增强生成（RAG）
+    brief: 将外部知识检索与 LLM 生成结合的技术。海量知识无法写入提示词时，先在数据库检索相关内容再喂给模型。
+    urls:
+      - /mindset/context-management
+      - /appendix/ai-terminology
+
+  - id: context
+    displayName: Context
+    enName: Context
+    prefer: en
+    cnName: 上下文
+    cnEnName: 上下文（Context）
+    brief: LLM 生成响应时能访问的全部输入信息，包括当前提示、对话历史和系统指令。
+    urls:
+      - /mindset/context-management
+      - /appendix/ai-terminology
+
+  - id: context-overflow
+    displayName: Context Overflow
+    enName: Context Overflow
+    prefer: en
+    cnName: 上下文溢出
+    cnEnName: 上下文溢出（Context Overflow）
+    brief: 输入内容超过模型上下文窗口上限，导致早期信息被丢弃或模型报错。
+    urls:
+      - /mindset/context-management
+      - /appendix/ai-terminology
+
+  - id: openclaw
+    displayName: OpenClaw
+    enName: OpenClaw
+    prefer: en
+    cnName: OpenClaw
+    cnEnName: OpenClaw
+    brief: 开源自托管网关，连接聊天应用与 AI 编码 Agent。内部是一个通用 ReAct Agent，附加系统提示、记忆、文件系统等功能。
+    urls:
+      - /appendix/ai-terminology
+
+  - id: claude-code
+    displayName: Claude Code
+    enName: Claude Code
+    prefer: en
+    cnName: Claude Code
+    cnEnName: Claude Code
+    brief: Anthropic 推出的终端原生智能体编程系统，以 Claude LLM 为核心，通过 ReAct 循环自主规划与执行代码任务。
+    urls:
+      - /intro/what-is-claude-code
+      - /appendix/ai-terminology
+
+  - id: harness
+    displayName: Harness
+    enName: Harness
+    prefer: en
+    cnName: 工程化 harness
+    cnEnName: Harness（工程化 harness）
+    brief: Harness = Product - Agent。除基础 ReAct 循环外，所有围绕产品化的功能（系统提示、权限控制、技能、插件等）。
+    urls:
+      - /intro/agentic-loop
+
+  - id: vibe-coding
+    displayName: Vibe Coding
+    enName: Vibe Coding
+    prefer: en
+    cnName: 氛围编程
+    cnEnName: 氛围编程（Vibe Coding）
+    brief: Andrej Karpathy 提出的概念，指开发者用自然语言描述意图，让 AI 自动完成编码的编程方式。
+    urls:
+      - /intro/what-is-claude-code

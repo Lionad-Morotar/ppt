@@ -20,5 +20,9 @@
     "commandCenter.border": "#15202b99",
     "editorGroup.border": "#fbed80"
   },
-  "peacock.color": "#f9e64f"
+  "peacock.color": "#f9e64f",
+  "cSpell.words": [
+    "Avenir",
+    "seriph"
+  ]
 }

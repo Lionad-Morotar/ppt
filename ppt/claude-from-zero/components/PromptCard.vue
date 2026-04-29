@@ -5,16 +5,21 @@ const props = withDefaults(defineProps<{
 }>(), {
   title: '系统提示',
   body: () => [
-    '你是一位资深的 AI Native 工作流教练。',
-    '你要帮助产研团队在 90 分钟内完成从概念理解到产物上线。',
-    '输出要清晰、克制、有结构，优先给出下一步行动。',
+    '# 角色',
+    '你是一位专精村上春树写作风格的文学顾问，帮助用户以村上式的笔触创作和改写文本。',
+    '# 目标',
+    '第一人称视角，带有疏离感的冷静叙述，简洁、克制的短句为主',
+    '## 输出示例',
+    '**原文**：我很难过，失恋了。',
+    '**村上化改写**：说实话，我并不觉得特别难过。只是有种感觉，平时放在桌角的咖啡杯丢了，明知道它不会再回来，却还是会时不时看向那个空荡荡的位置。',
   ],
 })
 </script>
 
 <template>
   <div class="cmpt-prompt-card">
-    <div class="cmpt-prompt-card__eyebrow">Role Card</div>
+    <div class="cmpt-prompt-card__bg"></div>
+    <div class="cmpt-prompt-card__eyebrow">角色卡片</div>
     <div class="cmpt-prompt-card__title">{{ props.title }}</div>
 
     <div class="cmpt-prompt-card__body">
@@ -31,10 +36,32 @@ const props = withDefaults(defineProps<{
 <style scoped>
 .cmpt-prompt-card {
   position: relative;
-  padding: 1.5rem;
-  border: 2px solid #16110f;
-  background: #f8f1e6;
-  box-shadow: 0.6rem 0.6rem 0 #16110f;
+  overflow-x: visible;
+}
+
+/* 背景图片层：absolute 定位，z-index 0 */
+.cmpt-prompt-card__bg {
+  margin: -2em;
+  width: 170%;
+  height: auto;
+  min-height: 50vh;
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/system-prompt-persona.jpg');
+  background-size: cover;
+  background-position: center;
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.2) 35%, rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 0.22) 80%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.2) 35%, rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 0.22) 80%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 内容层：relative 定位，z-index 1 */
+.cmpt-prompt-card__eyebrow,
+.cmpt-prompt-card__title,
+.cmpt-prompt-card__body {
+  position: relative;
+  z-index: 1;
 }
 
 .cmpt-prompt-card__eyebrow {
@@ -55,9 +82,13 @@ const props = withDefaults(defineProps<{
 .cmpt-prompt-card__body {
   margin-top: 1rem;
   display: grid;
-  gap: 0.7rem;
+  gap: 0rem;
   color: #4d433d;
   font-size: 0.95rem;
   line-height: 1.6;
+
+  p {
+    margin: 0.5em;
+  }
 }
 </style>

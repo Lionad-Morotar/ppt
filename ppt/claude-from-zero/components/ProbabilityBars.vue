@@ -3,11 +3,11 @@ import { computed, ref } from 'vue'
 import { useIntervalFn } from '@vueuse/core'
 
 const candidates = [
-  { token: 'Agent', probability: 0.42, color: '#16110f' },
-  { token: 'Tool', probability: 0.24, color: '#a33124' },
-  { token: 'Prompt', probability: 0.18, color: '#7f7467' },
-  { token: 'Skill', probability: 0.1, color: '#d0bfa6' },
-  { token: 'Hallucination', probability: 0.06, color: '#6e1f16' },
+  { token: '智能体', probability: 0.42, color: '#16110f' },
+  { token: '工具', probability: 0.24, color: '#a33124' },
+  { token: '提示词', probability: 0.18, color: '#7f7467' },
+  { token: '技能', probability: 0.1, color: '#d0bfa6' },
+  { token: '幻觉', probability: 0.06, color: '#6e1f16' },
 ]
 
 const activeIndex = ref(0)

@@ -5,13 +5,15 @@
   "scripts": {
     "dev": "slidev --port 3411",
     "build": "slidev build",
-    "export": "slidev export"
+    "export": "slidev export",
+    "lint:terms": "node scripts/validate-terms.mjs"
   },
   "dependencies": {
     "@slidev/cli": "^0.49.0",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "@vueuse/core": "^10.9.0",
+    "lucide-vue-next": "^1.0.0",
     "vue": "^3.4.21"
   }
 }

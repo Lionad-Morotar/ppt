@@ -77,7 +77,7 @@
 }
 
 .page-claude-from-zero {
-  padding: 2.5rem 2.9rem 2.1rem;
+  padding: 2.5rem 2.9rem 2.1rem !important;
 }
 
 .cmpt-kicker {
@@ -144,8 +144,8 @@
 .cmpt-bullet-list li::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 0.45rem;
+  left: -.65em;
+  top: 0.65em;
   width: 0.5rem;
   height: 0.5rem;
   background: var(--deck-red);
@@ -184,7 +184,6 @@
 
 .cmpt-side-stack {
   display: grid;
-  gap: 1rem;
 }
 
 .cmpt-table {
@@ -274,4 +273,86 @@
   opacity: 0;
   pointer-events: none;
   transform: translateY(calc(-100% - 1rem));
+}
+
+/* ── Mermaid 图样式覆盖 ── */
+
+/* 限制最大宽度，防止溢出 */
+.mermaid {
+  max-width: 100%;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 节点填充和边框 */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon,
+.mermaid .node path {
+  fill: var(--deck-paper) !important;
+  stroke: var(--deck-line) !important;
+  stroke-width: 2px !important;
+}
+
+/* 节点文字 */
+.mermaid .node .label,
+.mermaid .node text,
+.mermaid text {
+  fill: var(--deck-ink) !important;
+  color: var(--deck-ink) !important;
+}
+
+/* 连线和箭头 */
+.mermaid .edgePath .path,
+.mermaid .flowchart-link {
+  stroke: var(--deck-line) !important;
+  stroke-width: 2px !important;
+}
+
+/* 箭头标记 */
+.mermaid marker {
+  fill: var(--deck-line) !important;
+}
+
+/* ── Mermaid 双击放大 overlay ── */
+
+.deck-zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(22, 17, 15, 0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  animation: deck-zoom-fade-in 0.2s ease;
+}
+
+@keyframes deck-zoom-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.deck-zoom-overlay__content {
+  width: 85vw;
+  max-width: 72rem;
+  max-height: 85vh;
+  overflow: auto;
+  background: var(--deck-paper);
+  border: 2px solid var(--deck-line);
+  box-shadow: 0.6rem 0.6rem 0 0 var(--deck-line);
+  padding: 2rem;
+}
+
+.deck-zoom-overlay__content svg {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
 }

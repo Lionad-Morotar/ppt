@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server ./ -p9999",
-    "dev": "http-server ./ -p9999 -c0"
+    "dev": "http-server ./ -p9999 -c0",
+    "dev:cfz": "cd ./ppt/claude-from-zero && pnpm dev"
   },
   "repository": {
     "type": "git",

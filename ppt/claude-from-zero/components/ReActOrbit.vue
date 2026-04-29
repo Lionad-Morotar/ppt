@@ -3,10 +3,10 @@ import { ref } from 'vue'
 import { useIntervalFn } from '@vueuse/core'
 
 const stages = [
-  { label: 'Reason', angle: -90, color: '#a33124' },
-  { label: 'Act', angle: -10, color: '#16110f' },
-  { label: 'Observe', angle: 70, color: '#6e1f16' },
-  { label: 'Recover', angle: 150, color: '#7f7467' },
+  { label: '推理', angle: -90, color: '#a33124' },
+  { label: '行动', angle: -10, color: '#16110f' },
+  { label: '观察', angle: 70, color: '#6e1f16' },
+  { label: '恢复', angle: 150, color: '#7f7467' },
 ]
 
 const activeIndex = ref(0)
@@ -35,7 +35,7 @@ useIntervalFn(() => {
     </div>
 
     <div class="cmpt-react-orbit__core">
-      <div class="cmpt-react-orbit__title">Agent</div>
+      <div class="cmpt-react-orbit__title">智能体</div>
       <div class="cmpt-react-orbit__hint">让概率输出变得可控</div>
     </div>
   </div>
