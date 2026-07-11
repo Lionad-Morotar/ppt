@@ -49,12 +49,17 @@ export class Camera {
     if (this.isPPT) {
       // PPT 背景：固定机位，per-instance 呼吸已在 vertex shader 接管缓动
       this.updatePosition(0, 0)
-      return
+    } else {
+      // lerp 系数 0.04：缓慢追随，避免相机抖动
+      this.lerpedMouse.x += (this.mouse.x - this.lerpedMouse.x) * 0.04
+      this.lerpedMouse.y += (this.mouse.y - this.lerpedMouse.y) * 0.04
+      this.updatePosition(this.lerpedMouse.x, this.lerpedMouse.y)
     }
-    // lerp 系数 0.04：缓慢追随，避免相机抖动
-    this.lerpedMouse.x += (this.mouse.x - this.lerpedMouse.x) * 0.04
-    this.lerpedMouse.y += (this.mouse.y - this.lerpedMouse.y) * 0.04
-    this.updatePosition(this.lerpedMouse.x, this.lerpedMouse.y)
+    // updatePosition 经 lookAt 改 quaternion 后，强制把 local matrix 同步到 matrixWorld。
+    // EffectComposer 渲染路径下 scene.updateMatrixWorld 对 camera 的更新不可靠：
+    // r185 的 matrixWorldNeedsUpdate 机制在 force=false 时会跳过重算，
+    // 必须 force=true，否则 raycast 与投影读到停留在过期姿态（identity）的 matrixWorld。
+    this.instance.updateMatrixWorld(true)
   }
 
   private updatePosition(mx: number, my: number): void {

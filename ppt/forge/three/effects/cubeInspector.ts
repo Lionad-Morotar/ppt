@@ -131,6 +131,9 @@ export class CubeInspector {
 
   /** raycast 命中方块 → 移动线框 + 输出三合一坐标。 */
   private highlight(): void {
+    // EffectComposer 渲染路径下，camera.matrixWorld 在 render 帧外会停留在过期姿态，
+    // raycast 前强制重算，确保 setFromCamera 用的机位与当前渲染画面一致
+    this.engine.camera.instance.updateMatrixWorld(true)
     this.updateNDC()
     this.raycaster.setFromCamera(this.mouseNDC, this.engine.camera.instance)
     const hits = this.raycaster.intersectObject(this.hoverPlane)

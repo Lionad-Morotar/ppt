@@ -252,6 +252,8 @@ async function initWaveBackground() {
     ;(window as unknown as { __forgeBg?: unknown }).__forgeBg = engine
     // 调试探针：按住 cmd/ctrl 高亮鼠标所在方块并输出坐标，仅首页激活（setActive 由 startWaveBehavior 按页型切换）
     const inspector = new CubeInspector(engine)
+    // 暴露到 window 供 console 手动探查（与 __forgeBg 同一调试入口）
+    ;(window as unknown as { __forgeInspector?: unknown }).__forgeInspector = inspector
     startWaveBehavior(engine, inspector)
   }
   if (document.body)
