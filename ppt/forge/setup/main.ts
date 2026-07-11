@@ -137,7 +137,7 @@ function initMermaidInteractions() {
 function startWaveBehavior(engine: {
   stage: {
     mouseTrail: {
-      addPoint: (x: number, z: number, d: number) => void
+      addPoint: (x: number, z: number, d: number, fastDecay?: boolean) => void
       addRandomPoint: () => void
     }
     bounds: number
@@ -204,7 +204,10 @@ function startWaveBehavior(engine: {
     const page = currentPage()
     if (page === lastPage)
       return
+    const forward = page > lastPage
     lastPage = page
+    // 翻页 ripple：下一页在画面右侧中心点一颗，上一页在左侧中心（bounds*0.45 落在立方体阵列右/左边缘内）
+    trail.addPoint(forward ? bounds * 0.45 : -bounds * 0.45, 0, 1.8, true)
     updateBg(page)
     if (page === 1)
       startHomeRipple()

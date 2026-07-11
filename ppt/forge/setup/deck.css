@@ -159,3 +159,19 @@ html, body { background: transparent; }
 #slidev-goto-dialog {
   display: none !important;
 }
+
+/* 翻页后内容依次淡入：等 ripple 0.5s 跑完，再按顺序层次显现。
+   去 view-transition（整体快照淡入会与逐个 animation 打架闪烁），改由 slide 顶层元素 nth-child 依次播放。 */
+.slidev-layout > * {
+  opacity: 0;
+  animation: forgeReveal 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.slidev-layout > *:nth-child(1) { animation-delay: 0.25s; }
+.slidev-layout > *:nth-child(2) { animation-delay: 0.37s; }
+.slidev-layout > *:nth-child(3) { animation-delay: 0.49s; }
+.slidev-layout > *:nth-child(4) { animation-delay: 0.61s; }
+.slidev-layout > *:nth-child(n+5) { animation-delay: 0.73s; }
+@keyframes forgeReveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -14,6 +14,8 @@ export interface TrailPoint {
   z: number
   age: number
   distDelta: number
+  /** 快速衰减：age 以 4 倍速率增长，等效 fadeTime/4，用于翻页 ripple 迅速消失 */
+  fastDecay?: boolean
 }
 
 /** 波浪与网格的可调参数。S1 仅用网格部分；S2/S3 启用波浪项。 */

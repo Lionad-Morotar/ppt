@@ -102,9 +102,9 @@ export class MouseTrail {
   }
 
   /** 直接加一个轨迹点（绕过 raycast 与采样剔除），供测试与外部触发。 */
-  addPoint(x: number, z: number, distDelta: number): void {
+  addPoint(x: number, z: number, distDelta: number, fastDecay = false): void {
     if (this.trail.length >= MAX_TRAIL) this.trail.shift()
-    this.trail.push({ x, z, age: 0, distDelta })
+    this.trail.push({ x, z, age: 0, distDelta, fastDecay })
   }
 
   /** 鼠标静止时在中心区域随机生成触点，保证画面始终有波。 */
@@ -122,7 +122,7 @@ export class MouseTrail {
     for (let i = this.trail.length - 1; i >= 0; i--) {
       const point = this.trail[i]
       if (!point) continue
-      point.age += delta
+      point.age += delta * (point.fastDecay ? 4 : 1)
       if (point.age > expiry) this.trail.splice(i, 1)
     }
 
