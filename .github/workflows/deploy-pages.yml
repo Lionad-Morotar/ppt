@@ -1,0 +1,67 @@
+name: Deploy Pages
+
+# 推送到 main 且改动影响产物时，聚合构建全部分享并发布到 GitHub Pages。
+# 访问地址：https://lionad-morotar.github.io/ppt/<deck>/
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'ppt/**'
+      - 'scripts/build-all-decks.mjs'
+      - '.github/workflows/deploy-pages.yml'
+
+permissions:
+  contents: read
+
+# 同一时刻只跑一个部署，排队不取消（避免半成品上线）
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: pnpm
+          # 每个 deck 有独立 lockfile，用 glob 覆盖全部
+          cache-dependency-glob: 'ppt/**/pnpm-lock.yaml'
+
+      - name: Build all decks
+        run: node scripts/build-all-decks.mjs --install
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 部署根 = dist-pages/ppt，对齐 github.io/ppt/
+          path: dist-pages/ppt
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -6,8 +6,12 @@
   "scripts": {
     "start": "http-server ./ -p9999",
     "dev": "http-server ./ -p9999 -c0",
-    "dev:cfz": "cd ./ppt/claude-from-zero && pnpm dev",
-    "dev:forge": "cd ./ppt/forge && pnpm dev"
+    "dev:boris": "pnpm -C ./ppt/boris-five-roles-in-ai-native-teams dev",
+    "dev:cfz": "pnpm -C ./ppt/claude-from-zero dev",
+    "dev:demo": "pnpm -C ./ppt/demo-slidev dev",
+    "build:all": "node scripts/build-all-decks.mjs",
+    "build:all:install": "node scripts/build-all-decks.mjs --install",
+    "preview:all": "npx --yes http-server dist-pages -p 8080 -c0"
   },
   "repository": {
     "type": "git",
