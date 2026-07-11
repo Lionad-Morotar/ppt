@@ -3,7 +3,7 @@ theme: default
 title: AI Native 团队，该凑齐哪五种人
 mdc: true
 fonts:
-  sans: 'Avenir Next, PingFang SC, Microsoft YaHei, sans-serif'
+  sans: 'Lora, Songti SC, serif'
   mono: 'JetBrains Mono, SFMono-Regular, monospace'
 ---
 

@@ -134,15 +134,19 @@ function initMermaidInteractions() {
  * - 页型分治：首页持续随机波纹（F3），普通页静止（F4），翻页瞬间一律触发过渡波纹（F1）
  * 依赖 engine.stage.mouseTrail 的 addPoint / addRandomPoint（sleep 模式下唯一驱动波纹的入口）。
  */
-function startWaveBehavior(engine: {
-  stage: {
-    mouseTrail: {
-      addPoint: (x: number, z: number, d: number, fastDecay?: boolean) => void
-      addRandomPoint: () => void
+function startWaveBehavior(
+  engine: {
+    stage: {
+      mouseTrail: {
+        addPoint: (x: number, z: number, d: number, fastDecay?: boolean) => void
+        addRandomPoint: () => void
+      }
+      bounds: number
     }
-    bounds: number
-  }
-}) {
+  },
+  // 调试探针：按页型开关 cmd/ctrl 高亮（仅首页激活）
+  inspector: { setActive(enabled: boolean): void },
+) {
   const trail = engine.stage.mouseTrail
   const bounds = engine.stage.bounds
 
@@ -195,6 +199,7 @@ function startWaveBehavior(engine: {
 
   let lastPage = currentPage()
   updateBg(lastPage)
+  inspector.setActive(lastPage === 1)
   // 首屏若已在首页，启动持续随机波纹
   if (lastPage === 1)
     startHomeRipple()
@@ -209,6 +214,7 @@ function startWaveBehavior(engine: {
     // 翻页 ripple：下一页在画面右侧中心点一颗，上一页在左侧中心（bounds*0.45 落在立方体阵列右/左边缘内）
     trail.addPoint(forward ? bounds * 0.45 : -bounds * 0.45, 0, 1.8, true)
     updateBg(page)
+    inspector.setActive(page === 1)
     if (page === 1)
       startHomeRipple()
     else
@@ -235,7 +241,7 @@ function startWaveBehavior(engine: {
 async function initWaveBackground() {
   if (typeof window === 'undefined')
     return
-  const { WaveGridEngine } = await import('../three')
+  const { WaveGridEngine, CubeInspector } = await import('../three')
   const canvas = document.createElement('canvas')
   canvas.className = 'forge-bg-canvas'
   const veil = document.createElement('div')
@@ -244,7 +250,9 @@ async function initWaveBackground() {
     document.body.append(canvas, veil)
     const engine = new WaveGridEngine(canvas, { mouseEnabled: false, idleMode: 'sleep' })
     ;(window as unknown as { __forgeBg?: unknown }).__forgeBg = engine
-    startWaveBehavior(engine)
+    // 调试探针：按住 cmd/ctrl 高亮鼠标所在方块并输出坐标，仅首页激活（setActive 由 startWaveBehavior 按页型切换）
+    const inspector = new CubeInspector(engine)
+    startWaveBehavior(engine, inspector)
   }
   if (document.body)
     mount()

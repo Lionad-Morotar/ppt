@@ -26,9 +26,10 @@
 .slidev-layout h1,
 .slidev-layout h2,
 .slidev-layout h3 {
+  font-family: 'Lora, Songti SC, serif';
   color: var(--deck-ink);
   letter-spacing: -0.025em;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.1;
 }
 .slidev-layout h1 { font-size: 5rem; }
