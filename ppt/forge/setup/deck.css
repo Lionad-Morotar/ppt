@@ -126,6 +126,27 @@
   font-size: 0.85rem;
 }
 
+/* 页脚术语注释：生词 + 简释，钉在 slide 底部，逐页按需挂载。
+   用绝对定位而非流式，是为了让所有 slide 的注释栏落在同一视觉位置（真页脚感）；
+   代价是满页内容（如三列卡片页）需自行留底 padding 防重叠。 */
+.cmpt-glossary {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1.6rem;
+  padding-left: 2rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--deck-line);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--deck-muted);
+}
+.cmpt-glossary__term {
+  font-family: 'JetBrains Mono', SFMono-Regular, monospace;
+  color: var(--deck-ink);
+  font-weight: 600;
+}
+
 /* ── 立方体波浪背景层（跨页全局常驻）──
    为什么这么分层：canvas(z0) 最底→veil(z1) 半透明白弱化背景→Slidev 内容(z2) 最上。
    veil 透明度按页型由 --bg-veil 控制（S2 的 global-top 组件动态调）。

@@ -34,6 +34,10 @@ layout: default
   <li><span class="cmpt-grad-text">Shopify River</span>：每 8 个合并进主干的 PR，就有 1 个是这位 AI 同事合著</li>
 </ul>
 <p class="mt-8 cmpt-kicker">当对面工位坐的不是人、而是一个 Agent——这职位还剩多少保质期？</p>
+<aside class="cmpt-glossary">
+  <span class="cmpt-glossary__term">AI 数字员工</span>　像同事一样能自己领活、自己干活的 AI，不只是个软件（如 Shopify 的 River）。<br>
+  <span class="cmpt-glossary__term">提 PR</span>　把写完的代码递交团队审阅、申请合并进共用的代码库——类似"交稿"。
+</aside>
 
 
 ---
@@ -48,6 +52,9 @@ layout: default
   <li>按职能切：需求从市场来 → 产品打磨 → 设计审核 → 前后端开发 → 数据/运营支撑</li>
   <li>这条流水线非常好用——但在 AI 面前，许多人质疑它行不通了</li>
 </ul>
+<aside class="cmpt-glossary">
+  <span class="cmpt-glossary__term">瀑布流（Waterfall）</span>　像瀑布逐级往下流——需求→设计→开发→测试，一环做完才交给下一环，不回头。
+</aside>
 
 
 ---
@@ -56,13 +63,20 @@ layout: default
 
 <!-- P4 观点源头·Boris Cherny -->
 <div class="cmpt-kicker">观点源头</div>
-<h2>Boris Cherny——<br>Claude Code 缔造者</h2>
+<div class="flex items-center gap-6">
+  <h2>Boris Cherny——<br>Claude Code 缔造者</h2>
+  <img src="/boris-cherny.jpg" alt="Boris Cherny" class="rounded-full shrink-0 object-cover" style="width:96px;height:96px;border:2px solid var(--deck-line)">
+</div>
 <ul class="cmpt-bullet-list mt-8">
   <li>Anthropic 内部孵化式小团队，不长的时间里造出 <span class="cmpt-grad-text">Claude Code / CC Desktop / MCP</span></li>
   <li><span class="cmpt-grad-text">loop engineering</span> 提出者：以 loop 为 harness 核心，跑更多、更廉价的智能体</li>
   <li>核心假设：流程型工作通过<span class="cmpt-grad-text">左移</span>把人解放，更多工作交给 Agent 自动化</li>
 </ul>
 <p class="mt-6 cmpt-kicker">从这个视角，他观察到团队里浮现的——是能力原型。</p>
+<aside class="cmpt-glossary">
+  <span class="cmpt-glossary__term">Claude Code</span>　一个会写代码的 AI——你用大白话说要什么，它自己把程序写好、交上去。<br>
+  <span class="cmpt-glossary__term">左移（Shift-Left）</span>　把原来排后面的事（测 bug、把质量关）挪到最前头早早做，越早发现代价越小。
+</aside>
 
 
 ---
@@ -138,6 +152,9 @@ layout: default
   <li>做新需求 / 新实验 / 投广告 / 看数据 / 调转化 / 跑 A-B 测</li>
   <li>把产品放进<span class="cmpt-grad-text">"假设 → 验证 → 调整"</span>的数据循环，越跑越快</li>
 </ul>
+<aside class="cmpt-glossary">
+  <span class="cmpt-glossary__term">Product-Market Fit（PMF / 产品-市场匹配）</span>　你做的东西，正好有人需要、还愿意掏钱——产品和市场"对上眼了"。
+</aside>
 
 
 ---
@@ -180,6 +197,9 @@ layout: default
   </div>
 </div>
 <p class="mt-8">规律：<span class="cmpt-grad-text">Sweeper 从第一天就需要，Maintainer 是成熟路上才加入</span>。</p>
+<aside class="cmpt-glossary">
+  <span class="cmpt-glossary__term">PMF</span>　产品-市场匹配（Product-Market Fit）的缩写——你做的东西，终于有人愿意花钱买了。
+</aside>
 
 
 ---
@@ -195,6 +215,9 @@ layout: default
   <li>全栈是<span class="cmpt-grad-text">技术栈导向</span>：会页面 + API + 数据库 + 部署，关注端到端交付</li>
 </ul>
 <p class="mt-6 cmpt-kicker">不是新瓶装旧酒——是换了一把尺子去量人。</p>
+<aside class="cmpt-glossary">
+  <span class="cmpt-glossary__term">迭代 0（Iteration Zero）</span>　正式开工前的准备——约定怎么协作、搭好基础工具，相当于先"磨刀"。
+</aside>
 
 
 ---
