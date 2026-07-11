@@ -161,7 +161,7 @@ export class CubeInspector {
     const sy = ((this.lastClientY / window.innerHeight) * 100).toFixed(0)
     // eslint-disable-next-line no-console
     console.log(
-      `[forge-cube] grid(i=${i}→x, j=${j}→z) world(${x.toFixed(2)}, ${z.toFixed(2)}) screen(${sx}%, ${sy}%)`,
+      `[deck-cube] grid(i=${i}→x, j=${j}→z) world(${x.toFixed(2)}, ${z.toFixed(2)}) screen(${sx}%, ${sy}%)`,
     )
   }
 

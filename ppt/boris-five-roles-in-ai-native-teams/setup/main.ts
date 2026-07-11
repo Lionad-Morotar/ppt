@@ -126,7 +126,7 @@ function initMermaidInteractions() {
  * - 动态 import three → SSR 安全（Slidev build 不触 WebGL）
  * - PPT 模式：mouseEnabled=false（静止无鼠标交互）、idleMode=sleep（无随机波）
  * - 挂 canvas + 半透明遮罩到 body，z-index 在 Slidev 内容之下
- * - engine 存 window.__forgeBg，供翻页波纹组件（S2）调用
+ * - engine 存 window.__deckBg，供翻页波纹组件（S2）调用
  */
 /**
  * PPT 背景行为：首屏中心绽放 + 翻页方向波纹 + 按页型分治的随机波纹。
@@ -190,7 +190,7 @@ function startWaveBehavior(
   // canvas（立方体背景层）按页型：封面 opacity 1 不变，正文/尾页 0.85 稍透（立方体变淡、透白底，不显灰）
   // 实时 querySelector：startWaveBehavior 调用时 canvas 可能尚未挂载，闭包捕获会拿到 null 永不更新
   const updateBg = (page: number) => {
-    const c = document.querySelector('.forge-bg-canvas') as HTMLCanvasElement | null
+    const c = document.querySelector('.deck-bg-canvas') as HTMLCanvasElement | null
     if (c)
       c.style.opacity = page === 1 ? '1' : '0.85'
   }
@@ -243,17 +243,17 @@ async function initWaveBackground() {
     return
   const { WaveGridEngine, CubeInspector } = await import('../three')
   const canvas = document.createElement('canvas')
-  canvas.className = 'forge-bg-canvas'
+  canvas.className = 'deck-bg-canvas'
   const veil = document.createElement('div')
-  veil.className = 'forge-bg-veil'
+  veil.className = 'deck-bg-veil'
   const mount = () => {
     document.body.append(canvas, veil)
     const engine = new WaveGridEngine(canvas, { mouseEnabled: false, idleMode: 'sleep' })
-    ;(window as unknown as { __forgeBg?: unknown }).__forgeBg = engine
+    ;(window as unknown as { __deckBg?: unknown }).__deckBg = engine
     // 调试探针：按住 cmd/ctrl 高亮鼠标所在方块并输出坐标，仅首页激活（setActive 由 startWaveBehavior 按页型切换）
     const inspector = new CubeInspector(engine)
-    // 暴露到 window 供 console 手动探查（与 __forgeBg 同一调试入口）
-    ;(window as unknown as { __forgeInspector?: unknown }).__forgeInspector = inspector
+    // 暴露到 window 供 console 手动探查（与 __deckBg 同一调试入口）
+    ;(window as unknown as { __deckInspector?: unknown }).__deckInspector = inspector
     startWaveBehavior(engine, inspector)
   }
   if (document.body)

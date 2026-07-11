@@ -1,4 +1,4 @@
-/* forge deck — 最小中性占位（视觉待定，后续整体替换）
+/* deck — 最小中性占位（视觉待定，后续整体替换）
    仅提供：设计变量、基础排版、少数语义类的最小可用样式。
    保留组件（CmptPanel / SlideFooter / PreviewIcon）引用了 --deck-* 变量，
    这里给中性值让它们不至于“裸奔”；改视觉时调 :root 一处即可。 */
@@ -159,7 +159,7 @@ html, body { background: transparent; }
   background: transparent !important;
 }
 
-.forge-bg-canvas {
+.deck-bg-canvas {
   position: fixed;
   inset: 0;
   width: 100vw;
@@ -168,7 +168,7 @@ html, body { background: transparent; }
   pointer-events: none;
   display: block;
 }
-.forge-bg-veil {
+.deck-bg-veil {
   position: fixed;
   inset: 0;
   z-index: 1;
@@ -186,14 +186,14 @@ html, body { background: transparent; }
    去 view-transition（整体快照淡入会与逐个 animation 打架闪烁），改由 slide 顶层元素 nth-child 依次播放。 */
 .slidev-layout > * {
   opacity: 0;
-  animation: forgeReveal 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: deckReveal 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 .slidev-layout > *:nth-child(1) { animation-delay: 0.25s; }
 .slidev-layout > *:nth-child(2) { animation-delay: 0.37s; }
 .slidev-layout > *:nth-child(3) { animation-delay: 0.49s; }
 .slidev-layout > *:nth-child(4) { animation-delay: 0.61s; }
 .slidev-layout > *:nth-child(n+5) { animation-delay: 0.73s; }
-@keyframes forgeReveal {
+@keyframes deckReveal {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }

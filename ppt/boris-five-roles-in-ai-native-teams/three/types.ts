@@ -67,7 +67,7 @@ export const DEFAULT_WAVE_PARAMS: WaveParams = {
 }
 
 /**
- * 引擎行为选项——forge PPT 背景专用配置入口。
+ * 引擎行为选项——deck PPT 背景专用配置入口。
  * 原 demo 以鼠标涟漪 + 闲置随机波为卖点；PPT 背景需要静止可控，故抽出开关。
  */
 export interface TrailOptions {
