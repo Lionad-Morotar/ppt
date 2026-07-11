@@ -36,8 +36,8 @@ jobs:
         with:
           node-version: 'lts/*'
           cache: pnpm
-          # 每个 deck 有独立 lockfile，用 glob 覆盖全部
-          cache-dependency-glob: 'ppt/**/pnpm-lock.yaml'
+          # 每个 deck 有独立 lockfile，cache-dependency-path 支持 glob 覆盖全部
+          cache-dependency-path: 'ppt/**/pnpm-lock.yaml'
 
       - name: Build all decks
         run: node scripts/build-all-decks.mjs --install
