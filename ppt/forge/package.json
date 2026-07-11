@@ -1,0 +1,24 @@
+{
+  "name": "forge",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --port 4945",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.49.0",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "@types/three": "^0.185.1",
+    "@vueuse/core": "^10.9.0",
+    "lil-gui": "^0.21.0",
+    "lucide-vue-next": "^1.0.0",
+    "three": "^0.185.1",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.61.1"
+  }
+}

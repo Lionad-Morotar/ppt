@@ -1,0 +1,161 @@
+/* forge deck — 最小中性占位（视觉待定，后续整体替换）
+   仅提供：设计变量、基础排版、少数语义类的最小可用样式。
+   保留组件（CmptPanel / SlideFooter / PreviewIcon）引用了 --deck-* 变量，
+   这里给中性值让它们不至于“裸奔”；改视觉时调 :root 一处即可。 */
+
+:root {
+  /* 中性灰阶 + 单一 accent 占位（蓝）。改视觉时优先换 --deck-red */
+  --deck-bg: oklch(98.5% 0.006 250);
+  --deck-paper: oklch(98.5% 0.006 250);
+  --deck-paper-strong: oklch(95.5% 0.008 250);
+  --deck-ink: oklch(20% 0.013 250);
+  --deck-ink-soft: oklch(34% 0.015 250);
+  --deck-line: oklch(90% 0.006 250);
+  --deck-muted: oklch(42% 0.013 250);
+  --deck-red: oklch(55% 0.13 250);
+  --deck-red-dark: oklch(46% 0.15 250);
+}
+
+/* 基础排版 */
+.slidev-layout {
+  position: relative;
+  color: var(--deck-ink);
+  background: var(--deck-bg);
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  color: var(--deck-ink);
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  line-height: 1.1;
+}
+.slidev-layout h1 { font-size: 5rem; }
+.slidev-layout h2 { font-size: 2.8rem; }
+.slidev-layout h3 { font-size: 1.6rem; }
+
+.slidev-layout p,
+.slidev-layout li {
+  color: var(--deck-ink-soft);
+  line-height: 1.7;
+}
+
+.slidev-layout a { color: var(--deck-red); }
+
+.slidev-layout code {
+  font-family: 'JetBrains Mono', SFMono-Regular, monospace;
+}
+
+/* 语义类（最小可用，供 slides.md 使用；后续由视觉系统整体替换） */
+.cmpt-kicker {
+  font-family: 'JetBrains Mono', SFMono-Regular, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--deck-muted);
+}
+
+.cmpt-grad-text {
+  color: var(--deck-red);
+  font-weight: 700;
+}
+
+.cmpt-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+.cmpt-bullet-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 1.15rem;
+  list-style: none;
+}
+/* 清默认 ::marker，避免与自定义 ::before 菱形同时显示 */
+.cmpt-bullet-list li::marker {
+  content: '';
+}
+.cmpt-bullet-list li::before {
+  content: '';
+  position: absolute;
+  left: -1em;
+  top: 0.62em;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--deck-red);
+  transform: rotate(45deg);
+}
+
+.cmpt-hero__title { margin-top: 1.6rem; }
+.cmpt-hero__statement {
+  margin-top: 0.9rem;
+  max-width: 46rem;
+  font-size: 1.25rem;
+}
+.cmpt-section__sub {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.cmpt-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.8rem;
+}
+.cmpt-meta span {
+  font-family: 'JetBrains Mono', SFMono-Regular, monospace;
+  font-size: 0.78rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  color: var(--deck-ink);
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 2px 12px rgba(24, 24, 27, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.cmpt-meta--author {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+}
+
+/* ── 立方体波浪背景层（跨页全局常驻）──
+   为什么这么分层：canvas(z0) 最底→veil(z1) 半透明白弱化背景→Slidev 内容(z2) 最上。
+   veil 透明度按页型由 --bg-veil 控制（S2 的 global-top 组件动态调）。
+   Slidev 默认 .slidev-layout 白底会盖住 canvas，故强制透明，白底改由 veil 提供。 */
+html, body { background: transparent; }
+#app { position: relative; z-index: 2; }
+.slidev-layout,
+.slidev-slide-container,
+.slidev-slide-content {
+  background: transparent !important;
+}
+
+.forge-bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+.forge-bg-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.3);
+  transition: background 0.6s ease;
+}
+
+/* 隐藏 Slidev 的 goto-dialog 浮层：dev 下异常显示且读不到 per-slide title 会渲染 undefined */
+#slidev-goto-dialog {
+  display: none !important;
+}
