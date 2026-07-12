@@ -11,9 +11,14 @@
  *   artifact path = dist-pages/ppt/
  *   故 dist-pages/ppt/<deck>/ 对应 github.io/ppt/<deck>/，base = /ppt/<deck>/
  *   本地预览：http-server dist-pages → http://localhost:8080/ppt/ 与线上一致
+ *
+ * 老 revealjs 分享（poaa/light-travel/demo）依赖根级 dist/ 与 plugin/ 共享资源。
+ * 它们的 html 用 ../../dist/ 或 /dist/ 引用，子路径部署会 404，因此：
+ *   - 共享 dist/ plugin/ 复制到站点根
+ *   - 各 html 里对这些资源的引用统一重写为 ${URL_PREFIX}/dist|plugin/
  */
 import { execSync } from 'node:child_process'
-import { cpSync, mkdirSync, rmSync, writeFileSync } from 'node:fs'
+import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { join, resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -37,6 +42,11 @@ const STATIC_DECKS = [
   { dir: 'demo', title: 'Demo', desc: '早期静态 demo' },
 ]
 
+// revealjs 共享资源（根级 dist/plugin），多个老分享引用
+const SHARED_REVEAL_DIRS = ['dist', 'plugin']
+// 匹配 src/href 后跟可选(../)+ 或 / 再接 dist|plugin 的引用；不误伤 CDN 外链（=" 后必须是路径前缀）
+const REVEAL_REF_RE = /(src|href)="((?:\.\.\/)+|\/)?(dist|plugin)\//g
+
 const log = (m) => console.log(`\n▶ ${m}`)
 const run = (cmd, opts) => execSync(cmd, { stdio: 'inherit', ...opts })
 
@@ -48,13 +58,40 @@ function buildSlidev(deck) {
   run(`pnpm exec slidev build --base "${base}" --out "${out}"`, { cwd: dir })
 }
 
+// 复制根级 revealjs 共享资源到站点根，供老分享的 /ppt/dist|plugin/ 引用
+function copySharedReveal() {
+  for (const d of SHARED_REVEAL_DIRS) {
+    const src = join(ROOT, d)
+    if (!existsSync(src)) continue
+    log(`copy shared reveal: ${d}/`)
+    cpSync(src, join(SERVE_ROOT, d), { recursive: true })
+  }
+}
+
+// 递归重写目录下所有 .html 里对 dist/plugin 的引用为站点绝对路径
+function rewriteRevealPaths(dir) {
+  for (const ent of readdirSync(dir)) {
+    const p = join(dir, ent)
+    if (statSync(p).isDirectory()) {
+      rewriteRevealPaths(p)
+    } else if (ent.endsWith('.html')) {
+      const orig = readFileSync(p, 'utf8')
+      const next = orig.replace(REVEAL_REF_RE, `$1="${URL_PREFIX}/$3/`)
+      if (next !== orig) writeFileSync(p, next)
+    }
+  }
+}
+
 function copyStatic(deck) {
+  const dst = join(SERVE_ROOT, deck.dir)
   log(`copy static: ${deck.dir}`)
-  cpSync(join(DECKS, deck.dir), join(SERVE_ROOT, deck.dir), {
+  cpSync(join(DECKS, deck.dir), dst, {
     recursive: true,
     // 排除依赖与版本目录，避免把 node_modules 部署上线
     filter: (s) => !/(^|\/)(node_modules|\.git)(\/|$)/.test(s),
   })
+  // 老 revealjs 分享的 dist/plugin 引用重写为站点绝对路径，避免子路径 404
+  rewriteRevealPaths(dst)
 }
 
 function generateIndex() {
@@ -119,6 +156,7 @@ if (install) {
 }
 
 for (const d of SLIDEV_DECKS) buildSlidev(d)
+if (STATIC_DECKS.length) copySharedReveal()
 for (const d of STATIC_DECKS) copyStatic(d)
 generateIndex()
 
