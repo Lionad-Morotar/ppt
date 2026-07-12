@@ -36,10 +36,11 @@ const SLIDEV_DECKS = [
 ]
 
 // 静态 HTML 分享：整目录复制，保留相对资源路径
+// 注：ppt/demo 是 revealjs 官方测试 demo，依赖 root 缺失的 zoom/notes/search/markdown
+// 插件，初始化即白屏；且非分享内容，故不纳入部署（源文件保留）
 const STATIC_DECKS = [
   { dir: 'poaa', title: 'CSS 抗锯齿方案 POAA', desc: '2021 · 解决 CSS 背景中的锯齿' },
   { dir: 'light-travel', title: 'CSS 光影魔法', desc: '2022 · 用 CSS 仿制拟真阴影' },
-  { dir: 'demo', title: 'Demo', desc: '早期静态 demo' },
 ]
 
 // revealjs 共享资源（根级 dist/plugin），多个老分享引用

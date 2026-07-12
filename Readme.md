@@ -15,7 +15,6 @@
 - https://lionad-morotar.github.io/ppt/demo-slidev/
 - https://lionad-morotar.github.io/ppt/poaa/
 - https://lionad-morotar.github.io/ppt/light-travel/
-- https://lionad-morotar.github.io/ppt/demo/demo.html
 
 ## 本地预览
 
