@@ -1,0 +1,165 @@
+/* 技术分享 PPT 集合 — LikeC4 架构模型。事实源：.planning/codebase/ARCHITECTURE.md 等；本文件随其同步维护 */
+specification {
+  element actor { notation "人员"; style { shape person } }
+  element system
+  element container
+  element component { style { shape component } }
+
+  deploymentNode environment { notation "环境"; style { color gray } }
+  deploymentNode runner { notation "CI 运行器" }
+  deploymentNode site { notation "托管站点"; style { shape storage } }
+}
+
+model {
+  actor author "Lionad（作者 / 演讲者）" {
+    description "编写 slides.md 与 deck HTML，维护聚合构建脚本，push main 触发发布"
+    -> ppt "编写 deck 与讲稿，push main 触发发布"
+    -> deckBoris "pnpm dev:boris（Slidev dev :4945）"
+    -> deckClaudeFromZero "pnpm dev:cfz（Slidev dev :3411）"
+    -> deckDemoSlidev "pnpm dev:demo（Slidev dev :12983）"
+    -> deckPoaa "pnpm dev（http-server :9999 直浏览）"
+    -> deckLightTravel "pnpm dev（http-server :9999 直浏览）"
+    -> artifactBundle "pnpm preview:all（http-server dist-pages :8080，与线上形态一致）"
+  }
+
+  actor audience "观众" {
+    description "在浏览器中浏览线上分享"
+    -> githubPages "访问 /ppt/<deck>/ 或目录页"
+  }
+
+  system ppt "技术分享 PPT 集合" {
+    description "reveal.js 静态 deck 与 Slidev deck 并存，聚合构建后发布到 GitHub Pages 单一站点（/ppt/ 子路径）"
+
+    container revealFramework "reveal.js 共享框架" {
+      technology "reveal.js 4.0.2 · dist/ + plugin/ 预编译分发 · 主题 Sass 源码 css/（手动编译）"
+      description "老 deck 共享的运行时、11 款主题与 highlight / ppt.css 插件；不感知任何子项目内容，仅被相对路径引用"
+    }
+
+    container deckBoris "《AI 原生团队，该凑齐哪五种人》" {
+      technology "Slidev ^0.49 · Vue 3 · Three.js ^0.185（自研引擎）"
+      description "自含依赖与 lockfile；three/ 框架无关波浪网格引擎经 setup/main.ts 注入全局常驻背景，附双语访谈 transcript；playwright-chromium 导出 PDF"
+    }
+    container deckClaudeFromZero "《Claude from ZERO》" {
+      technology "Slidev ^0.49 · Vue 3"
+      description "自含依赖；18 个可视化 Vue 组件 + 术语校验脚本（lint:terms）；lockfile 例外：用 npm 的 package-lock.json"
+    }
+    container deckDemoSlidev "《Slidev 功能演示》" {
+      technology "Slidev ^52.14.2 · Vue 3"
+      description "自含依赖；Slidev 核心能力演示；遗留 netlify.toml / vercel.json 模板配置，实际不生效"
+    }
+    container deckPoaa "《CSS 抗锯齿方案 POAA》" {
+      technology "reveal.js 4.0.2 静态 HTML · 无构建"
+      description "serif 主题 + 4 个 iframe demo + 演示视频；以 ../../dist/ 相对路径引用根框架"
+      -> revealFramework "相对路径引用 ../../dist/、../../plugin/（构建时重写为 /ppt/dist|plugin/）"
+      -> imageCdn "HTML 外链图床图片（阿里云 OSS / jsDelivr）"
+      -> embedSites "data-background-iframe 嵌入外部演示页"
+    }
+    container deckLightTravel "《CSS 光影魔法》" {
+      technology "reveal.js 4.0.2 静态 HTML · 无构建"
+      description "serif 主题 + 12 个 iframe demo（SVG feTurbulence 拟真阴影）；同样引用根框架"
+      -> revealFramework "相对路径引用 ../../dist/、../../plugin/（构建时重写为 /ppt/dist|plugin/）"
+      -> imageCdn "HTML 外链图床图片（阿里云 OSS / Google Fonts）"
+      -> embedSites "data-background-iframe 嵌入外部演示页"
+    }
+    container deckDemo "reveal.js 官方演示 demo" {
+      technology "纯 HTML"
+      description "依赖根目录缺失的 zoom/notes/search/markdown 插件，初始化白屏；不纳入部署（源文件保留）"
+      -> revealFramework "引用缺失插件（zoom/notes/search/markdown）"
+      -> embedSites "iframe 嵌入 hakim.se / slideshare"
+    }
+
+    component buildOrchestrator "聚合构建编排" {
+      technology "scripts/build-all-decks.mjs · Node ESM（仅 node: 内置模块，无三方依赖）"
+      description "deck 清单唯一定义点（SLIDEV_DECKS / STATIC_DECKS）；本地 pnpm build:all 与 CI 共用同一脚本"
+      -> deckBoris "pnpm exec slidev build --base /ppt/<deck>/ --out"
+      -> deckClaudeFromZero "pnpm exec slidev build --base /ppt/<deck>/ --out"
+      -> deckDemoSlidev "pnpm exec slidev build --base /ppt/<deck>/ --out"
+      -> deckPoaa "整目录复制（滤 node_modules/.git）+ REVEAL_REF_RE 重写引用"
+      -> deckLightTravel "整目录复制（滤 node_modules/.git）+ REVEAL_REF_RE 重写引用"
+      -> revealFramework "复制 dist/ 与 plugin/ 到站点根，供老 deck 子路径引用不 404"
+      -> artifactBundle "输出产物到 dist-pages/ppt/，生成卡片式目录页 index.html"
+    }
+    component artifactBundle "聚合产物（部署根）" {
+      technology "dist-pages/ppt/（gitignored 构建产物）"
+      description "各 deck 产物 + 站点根 dist|plugin/ 共享资源 + 自动生成的目录页，整体即 GitHub Pages artifact"
+    }
+  }
+
+  system githubActions "GitHub Actions" {
+    technology "deploy-pages.yml · pnpm 9 · Node LTS"
+    description "push main 且 paths 命中（ppt/**、构建脚本、workflow 自身）或手动触发；concurrency group pages 排队不取消"
+    -> buildOrchestrator "node scripts/build-all-decks.mjs --install（逐 deck pnpm install）"
+    -> githubPages "upload-pages-artifact(dist-pages/ppt) → deploy-pages@v4（OIDC，仅内置 GITHUB_TOKEN）"
+  }
+
+  system githubPages "GitHub Pages" {
+    technology "静态托管 · https://lionad-morotar.github.io/ppt/（URL 前缀 = 仓库名 /ppt）"
+    description "单站点聚合访问，首次部署需在仓库 Settings 选择 GitHub Actions 来源"
+  }
+
+  system imageCdn "图床与 CDN" {
+    technology "阿里云 OSS（mgear-image）· jsDelivr（blog-cdn）· Google Fonts"
+    description "老静态 deck 的 HTML 直接外链图片素材；Slidev deck 资源全部本地打包，不依赖 CDN"
+  }
+
+  system embedSites "外部演示站点" {
+    technology "iframe（data-background-iframe + data-background-interactive）"
+    description "baidu / cssworld / csshake / hakim.se 等在线页面，作为幻灯片交互背景嵌入（仅 reveal.js 系 deck 使用）"
+  }
+}
+
+deployment {
+  environment prod "生产" {
+    technology "GitHub Pages 单站点聚合 · push main 自动发布"
+    runner ciRunner "GitHub Actions 运行器" {
+      technology "ubuntu-latest · pnpm 9 · Node LTS · 缓存按 ppt/**/pnpm-lock.yaml"
+      instanceOf ppt.buildOrchestrator buildJob "聚合构建 job"
+    }
+    site pagesHost "GitHub Pages 托管" {
+      technology "https://lionad-morotar.github.io/ppt/"
+      instanceOf ppt.artifactBundle live "聚合站点 /ppt/"
+    }
+    buildJob -> live "upload-pages-artifact + deploy-pages@v4（OIDC）"
+  }
+}
+
+views {
+  view index {
+    title "系统全景"
+    description "作者与观众、双栈 deck、聚合构建与 GitHub Pages 发布"
+    include *
+    autoLayout LeftRight
+  }
+
+  view decks of ppt {
+    title "Deck 与共享框架"
+    description "reveal.js 老 deck 依赖根框架共享资源；Slidev deck 自含依赖不引用根框架"
+    include *
+    include author, audience
+    autoLayout LeftRight
+  }
+
+  view pipeline {
+    title "CI 聚合构建与发布流程"
+    dynamic {
+      author -> githubActions "push main（paths: ppt/** · 构建脚本 · workflow）"
+      githubActions -> buildOrchestrator "node scripts/build-all-decks.mjs --install"
+      parallel {
+        buildOrchestrator -> deckBoris "slidev build --base"
+        buildOrchestrator -> deckClaudeFromZero "slidev build --base"
+        buildOrchestrator -> deckDemoSlidev "slidev build --base"
+        buildOrchestrator -> deckPoaa "整目录复制 + 引用重写"
+        buildOrchestrator -> deckLightTravel "整目录复制 + 引用重写"
+        buildOrchestrator -> revealFramework "复制共享 dist/ 与 plugin/"
+      }
+      buildOrchestrator -> artifactBundle "生成目录页 index.html"
+      githubActions -> githubPages "部署 artifact（deploy-pages@v4 · OIDC）"
+    }
+  }
+
+  view deployment {
+    title "生产部署视图"
+    include prod.**
+    autoLayout LeftRight
+  }
+}
