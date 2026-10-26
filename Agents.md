@@ -17,5 +17,6 @@
 | [CONCERNS.md](./.planning/codebase/CONCERNS.md)         | 技术债务、注意事项         |
 | [PAGES.md](./.planning/codebase/PAGES.md)              | 页面与入口清单（deck 部署面、根命令族） |
 | [C4 模型](./.planning/c4/ppt.c4)                        | LikeC4 架构模型（npx likec4 start 查看） |
+| [refs/easy-vibe](./refs/easy-vibe/README.md)           | easy-vibe 参考资料，git 子模块固定快照（ignore=all） |
 
 你可以自行读取项目上下文文档，更新时也优先更新相关文档。
