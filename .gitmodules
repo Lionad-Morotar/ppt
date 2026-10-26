@@ -1,0 +1,4 @@
+[submodule "easy-vibe"]
+	path = refs/easy-vibe
+	url = https://github.com/datawhalechina/easy-vibe.git
+	ignore = all
