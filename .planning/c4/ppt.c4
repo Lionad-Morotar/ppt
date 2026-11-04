@@ -110,14 +110,14 @@ model {
 
 deployment {
   environment prod "生产" {
-    technology "GitHub Pages 单站点聚合 · push main 自动发布"
+    technology "GitHub Pages 单站点聚合 · push main 自动发布 · concurrency group pages 排队不取消"
     runner ciRunner "GitHub Actions 运行器" {
       technology "ubuntu-latest · pnpm 9 · Node LTS · 缓存按 ppt/**/pnpm-lock.yaml"
-      instanceOf ppt.buildOrchestrator buildJob "聚合构建 job"
+      buildJob = instanceOf ppt.buildOrchestrator "聚合构建 job"
     }
     site pagesHost "GitHub Pages 托管" {
-      technology "https://lionad-morotar.github.io/ppt/"
-      instanceOf ppt.artifactBundle live "聚合站点 /ppt/"
+      technology "https://lionad-morotar.github.io/ppt/（URL 前缀 = 仓库名 /ppt）"
+      live = instanceOf ppt.artifactBundle "聚合站点 /ppt/"
     }
     buildJob -> live "upload-pages-artifact + deploy-pages@v4（OIDC）"
   }
@@ -135,29 +135,28 @@ views {
     title "Deck 与共享框架"
     description "reveal.js 老 deck 依赖根框架共享资源；Slidev deck 自含依赖不引用根框架"
     include *
-    include author, audience
+    include author
+    include audience
     autoLayout LeftRight
   }
 
-  view pipeline {
+  dynamic view pipeline {
     title "CI 聚合构建与发布流程"
-    dynamic {
-      author -> githubActions "push main（paths: ppt/** · 构建脚本 · workflow）"
-      githubActions -> buildOrchestrator "node scripts/build-all-decks.mjs --install"
-      parallel {
-        buildOrchestrator -> deckBoris "slidev build --base"
-        buildOrchestrator -> deckClaudeFromZero "slidev build --base"
-        buildOrchestrator -> deckDemoSlidev "slidev build --base"
-        buildOrchestrator -> deckPoaa "整目录复制 + 引用重写"
-        buildOrchestrator -> deckLightTravel "整目录复制 + 引用重写"
-        buildOrchestrator -> revealFramework "复制共享 dist/ 与 plugin/"
-      }
-      buildOrchestrator -> artifactBundle "生成目录页 index.html"
-      githubActions -> githubPages "部署 artifact（deploy-pages@v4 · OIDC）"
+    author -> githubActions "push main（paths: ppt/** · 构建脚本 · workflow）"
+    githubActions -> buildOrchestrator "node scripts/build-all-decks.mjs --install"
+    parallel {
+      buildOrchestrator -> deckBoris "slidev build --base"
+      buildOrchestrator -> deckClaudeFromZero "slidev build --base"
+      buildOrchestrator -> deckDemoSlidev "slidev build --base"
+      buildOrchestrator -> deckPoaa "整目录复制 + 引用重写"
+      buildOrchestrator -> deckLightTravel "整目录复制 + 引用重写"
+      buildOrchestrator -> revealFramework "复制共享 dist/ 与 plugin/"
     }
+    buildOrchestrator -> artifactBundle "生成目录页 index.html"
+    githubActions -> githubPages "部署 artifact（deploy-pages@v4 · OIDC）"
   }
 
-  view deployment {
+  deployment view prod {
     title "生产部署视图"
     include prod.**
     autoLayout LeftRight
