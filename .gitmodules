@@ -2,3 +2,7 @@
 	path = refs/easy-vibe
 	url = https://github.com/datawhalechina/easy-vibe.git
 	ignore = all
+[submodule "fe-stack-atlas"]
+	path = refs/fe-stack-atlas
+	url = https://github.com/Lionad-Morotar/fe-stack-atlas
+	ignore = all
