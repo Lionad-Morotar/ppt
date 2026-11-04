@@ -1,28 +1,38 @@
 {
   "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#fbed80",
-    "activityBar.activeBorder": "#06b9a5",
-    "activityBar.background": "#fbed80",
+    "activityBar.activeBackground": "#fad4c1",
+    "activityBar.activeBorder": "#15202b",
+    "activityBar.background": "#fad4c1",
     "activityBar.foreground": "#15202b",
     "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#06b9a5",
-    "activityBarBadge.foreground": "#15202b",
-    "statusBar.background": "#f9e64f",
+    "activityBarBadge.background": "#0eb145",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#f6b492",
     "statusBar.foreground": "#15202b",
-    "statusBarItem.hoverBackground": "#f7df1e",
-    "titleBar.activeBackground": "#f9e64f",
+    "statusBarItem.hoverBackground": "#f29463",
+    "titleBar.activeBackground": "#f6b492",
     "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveBackground": "#f9e64f99",
+    "titleBar.inactiveBackground": "#f6b49299",
     "titleBar.inactiveForeground": "#15202b99",
-    "sash.hoverBorder": "#fbed80",
-    "statusBarItem.remoteBackground": "#f9e64f",
+    "sash.hoverBorder": "#fad4c1",
+    "statusBarItem.remoteBackground": "#0c933a",
     "statusBarItem.remoteForeground": "#15202b",
     "commandCenter.border": "#15202b99",
-    "editorGroup.border": "#fbed80"
+    "editorGroup.border": "#fad4c1",
+    "activityBarTop.activeBackground": "#fad4c1",
+    "activityBarTop.background": "#fad4c1",
+    "activityBarTop.foreground": "#15202b",
+    "activityBarTop.inactiveForeground": "#15202b99",
+    "commandCenter.foreground": "#15202b",
+    "statusBar.debuggingBackground": "#f6b492",
+    "statusBar.debuggingForeground": "#15202b",
+    "activityBarTop.activeBorder": "#15202b",
+    "statusBar.inactiveBackground": "#f6b492"
   },
-  "peacock.color": "#f9e64f",
+  "peacock.color": "#f6b492",
   "cSpell.words": [
     "Avenir",
     "seriph"
-  ]
+  ],
+  "explorer.excludeGitIgnore": false
 }
