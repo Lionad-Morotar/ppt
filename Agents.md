@@ -21,3 +21,7 @@
 | [refs/fe-stack-atlas](./refs/fe-stack-atlas/README.md) | 2026 前端技术栈知识点代码图谱：61 个知识点各一个独立 workspace package（ignore=all） |
 
 你可以自行读取项目上下文文档，更新时也优先更新相关文档。
+
+## 仓库技能
+
+- `write-ppt`：技术分享讲稿撰写、Slidev 演示工程搭建与存量幻灯片信息减负（`./.agents/skills/write-ppt/SKILL.md`）
