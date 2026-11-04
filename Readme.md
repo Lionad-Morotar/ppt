@@ -43,6 +43,7 @@ pnpm dev:demo       # demo-slidev（端口 12983）
 
 ## 部署机制
 
-`scripts/build-all-decks.mjs` 聚合构建全部分享；`.github/workflows/deploy-pages.yml` 在 push main 时触发，把 `dist-pages/ppt/` 发布为 GitHub Pages。新增 Slidev deck 只需放进 `ppt/<deck>/` 并在脚本顶部的 `SLIDEV_DECKS` 数组加一行。
+`scripts/build-all-decks.mjs` 聚合构建全部分享；`.github/workflows/deploy-pages.yml` 在 push main 时触发，
+把 `dist-pages/ppt/` 发布为 GitHub Pages。新增 Slidev deck 只需放进 `ppt/<deck>/` 并在脚本顶部的 `SLIDEV_DECKS` 数组加一行。
 
 > 新仓库首次部署需在 GitHub 仓库 Settings → Pages → Source 选择 "GitHub Actions"。
